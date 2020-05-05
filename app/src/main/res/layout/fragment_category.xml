@@ -76,5 +76,6 @@
             android:background="@color/colorPeachpuff"
             android:text="카페"/>
 
+
     </LinearLayout>
 </LinearLayout>
