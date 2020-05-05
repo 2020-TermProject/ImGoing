@@ -75,32 +75,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Intent intent = getIntent();
-        String Nick_name = intent.getStringExtra("NICKNAME");
-
-        loginBtn = (ImageButton)findViewById(R.id.login);
-        nameText =(TextView) findViewById(R.id.namebox);
-        loginBtn = (ImageButton) findViewById(R.id.login);
-        Log.d("nickname", Nick_name + "확인되었습니다");
-        if(Nick_name != null){
-            loginBtn.setImageResource(R.drawable.logout);
-            nameText.setText(intent.getStringExtra("NICKNAME")+"님 반갑습니다. ");
-        }
-        else {
-            loginBtn.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-
-                    startActivityForResult(intent, sub);
-                }
-            });
-        }
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        Intent intent = getIntent();
+//        String Nick_name = intent.getStringExtra("NICKNAME");
+//
+//        loginBtn = (ImageButton)findViewById(R.id.login);
+//        nameText =(TextView) findViewById(R.id.namebox);
+//        loginBtn = (ImageButton) findViewById(R.id.login);
+//        Log.d("nickname", Nick_name + "확인되었습니다");
+//        if(Nick_name != null){
+//            loginBtn.setImageResource(R.drawable.logout);
+//            nameText.setText(intent.getStringExtra("NICKNAME")+"님 반갑습니다. ");
+//        }
+//        else {
+//            loginBtn.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//
+//                    startActivityForResult(intent, sub);
+//                }
+//            });
+//        }
+//    }
 
 
 }
