@@ -21,7 +21,8 @@
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
             android:textSize="24sp"
-            android:text="한식" />
+            android:text="한식"
+            android:fontFamily="@font/gmmedium"/>
 
 
 
@@ -29,31 +30,36 @@
             android:layout_height="100dp"
             android:layout_width="411dp"
             android:textSize="24sp"
-            android:text="중식"/>
+            android:text="중식"
+            android:fontFamily="@font/gmmedium"/>
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
             android:textSize="24sp"
-            android:text="일식"/>
+            android:text="일식"
+            android:fontFamily="@font/gmmedium"/>
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
             android:textSize="24sp"
-            android:text="양식"/>
+            android:text="양식"
+            android:fontFamily="@font/gmmedium"/>
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
             android:textSize="24sp"
-            android:text="분식"/>
+            android:text="분식"
+            android:fontFamily="@font/gmmedium"/>
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
             android:textSize="24sp"
-            android:text="카페"/>
+            android:text="카페"
+            android:fontFamily="@font/gmmedium"/>
 
     </LinearLayout>
 </LinearLayout>
