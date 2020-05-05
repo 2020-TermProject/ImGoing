@@ -26,9 +26,10 @@ public class SignUp extends AsyncTask<String, Void, String> {
         String kid = strings[3];
         String owneruser = strings[4];
         String restaurantName = strings[5];
-        String category = strings[6];
-        String restaurantLatitude = strings[7];
-        String restaurantLongitude = strings[8];
+        String businessNo = strings[6];
+        String category = strings[7];
+        String restaurantLatitude = strings[8];
+        String restaurantLongitude = strings[9];
         try {
             url = new URL(strings[0]);
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -42,6 +43,7 @@ public class SignUp extends AsyncTask<String, Void, String> {
             js.put("kid", kid);
             js.put("owneruser", owneruser);
             js.put("retaurantName", restaurantName);
+            js.put("businessNo", businessNo);
             js.put("category", category);
             js.put("restaurantLatitude", restaurantLatitude);
             js.put("retaurantLongitude", restaurantLongitude);

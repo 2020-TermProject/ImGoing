@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
         signupButton =(Button)findViewById(R.id.sign_up);
         signupButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
                 Intent intent = new Intent(getApplicationContext(), SignUPActivity.class);
                 startActivityForResult(intent,sub);
 
@@ -130,10 +131,12 @@ public class Login extends AppCompatActivity {
                                     intent.putExtra("USER_ID",String.valueOf(result.getId()));
                                     intent.putExtra("PROFILE_IMG",profile.getProfileImageUrl());
                                     intent.putExtra("E-MAIL", mail);
-
+                                    name = nickName;
+                                    kid = String.valueOf(result.getId());
                                     try {
                                         LoginJson loginTask = new LoginJson();
                                         String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/login.php", name, email, kid));
+
                                     }catch (Exception e){
                                         e.printStackTrace();
                                         Log.e("tag","In catch");
