@@ -19,14 +19,17 @@
             android:drawableLeft="@drawable/hansik"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
+
             android:textSize="40dp"
             android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
             android:text="한식" />
 
+
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
+
             android:id="@+id/chinesefood"
             android:textSize="40dp"
             android:fontFamily="@font/gmmedium"
@@ -36,9 +39,11 @@
             android:background="@color/colorPeachpuff"
             android:text="중식"/>
 
+
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
+
             android:textSize="40dp"
             android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
@@ -46,9 +51,11 @@
             android:layout_marginBottom="10dp"
             android:text="일식"/>
 
+
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
+
             android:drawableLeft="@drawable/yangsik"
             android:textSize="40dp"
             android:fontFamily="@font/gmmedium"
@@ -56,9 +63,11 @@
             android:background="@color/colorPeachpuff"
             android:text="양식"/>
 
+
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
+
             android:drawableLeft="@drawable/bunsik"
             android:textSize="40dp"
             android:layout_marginBottom="10dp"
@@ -66,15 +75,18 @@
             android:background="@color/colorPeachpuff"
             android:text="분식"/>
 
+
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
+
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/cafe"
             android:textSize="40dp"
             android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
             android:text="카페"/>
+
 
 
     </LinearLayout>
