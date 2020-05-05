@@ -1,0 +1,136 @@
+@@ -0,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:background="#e9e9e9"
+        android:textSize="30dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="회원가입" />
+
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/com_kakao_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_weight="20dp" />
+
+    <TextView
+        android:id="@+id/KakaoID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="60dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="KakaoID" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="60dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="name" />
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="60dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="email" />
+
+
+
+    <TextView
+        android:id="@+id/textview_restaurantName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="60dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="Restaurant Name" />
+
+    <EditText
+        android:id="@+id/restaurantName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="5dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="RestaurantName" />
+
+    <TextView
+        android:id="@+id/textview_category"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="60dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="Category"
+        android:textSize="25dp" />
+
+    <Spinner
+        android:id="@+id/txt_question_type"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="5dp"
+        android:entries="@array/카테고리"
+        android:gravity="right"
+        android:textColor="0xffffff"
+        android:textSize="30dp"></Spinner>
+
+    <TextView
+        android:id="@+id/restaurantLocation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="60dp"
+        android:fontFamily="@font/gmmedium"
+        android:text="restaurantLocation"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/locationfind"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="5dp"
+        android:layout_weight="15dp"
+        android:text="Find" />
+
+    <Button
+        android:id="@+id/sign_up"
+        android:layout_width="291dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="20dp"
+        android:text="SignUp" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="291dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="20dp"
+        android:text="Back" />
+
+</LinearLayout>
