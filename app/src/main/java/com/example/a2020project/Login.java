@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
     String kid, email, name;
     public static final int sub = 1001;
     public Button signupButton;
+    public Button backButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -41,7 +42,13 @@ public class Login extends AppCompatActivity {
 
             }
         });
+        backButton =(Button)findViewById(R.id.back);
+        backButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                finish();
 
+            }
+        });
         UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
             @Override
             public void onCompleteLogout() {
