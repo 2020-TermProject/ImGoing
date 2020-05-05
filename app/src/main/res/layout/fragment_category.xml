@@ -12,55 +12,83 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="vertical">
-
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
-            android:id="@+id/food"
+            android:id="@+id/koreanfood"
             android:drawableLeft="@drawable/hansik"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
-            android:textSize="24sp"
-            android:text="한식"
-            android:fontFamily="@font/gmmedium"/>
 
+            android:textSize="40dp"
+            android:fontFamily="@font/gmmedium"
+            android:background="@color/colorPeachpuff"
+            android:text="한식" />
 
 
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
-            android:textSize="24sp"
-            android:text="중식"
-            android:fontFamily="@font/gmmedium"/>
+
+            android:id="@+id/chinesefood"
+            android:textSize="40dp"
+            android:fontFamily="@font/gmmedium"
+            android:drawableLeft="@drawable/zhongsik"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPeachpuff"
+            android:text="중식"/>
+
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
-            android:textSize="24sp"
-            android:text="일식"
-            android:fontFamily="@font/gmmedium"/>
+
+            android:textSize="40dp"
+            android:fontFamily="@font/gmmedium"
+            android:background="@color/colorPeachpuff"
+            android:drawableLeft="@drawable/ilsik"
+            android:layout_marginBottom="10dp"
+            android:text="일식"/>
+
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
-            android:textSize="24sp"
-            android:text="양식"
-            android:fontFamily="@font/gmmedium"/>
+
+            android:drawableLeft="@drawable/yangsik"
+            android:textSize="40dp"
+            android:fontFamily="@font/gmmedium"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPeachpuff"
+            android:text="양식"/>
+
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
-            android:textSize="24sp"
-            android:text="분식"
-            android:fontFamily="@font/gmmedium"/>
+
+            android:drawableLeft="@drawable/bunsik"
+            android:textSize="40dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/gmmedium"
+            android:background="@color/colorPeachpuff"
+            android:text="분식"/>
+
 
         <Button
             android:layout_height="100dp"
             android:layout_width="411dp"
-            android:textSize="24sp"
-            android:text="카페"
-            android:fontFamily="@font/gmmedium"/>
+
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/cafe"
+            android:textSize="40dp"
+            android:fontFamily="@font/gmmedium"
+            android:background="@color/colorPeachpuff"
+            android:text="카페"/>
+
+
 
     </LinearLayout>
 </LinearLayout>
