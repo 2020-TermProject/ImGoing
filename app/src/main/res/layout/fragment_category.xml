@@ -20,7 +20,7 @@
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
             android:textSize="40dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
             android:text="한식" />
 
@@ -29,7 +29,7 @@
             android:layout_width="411dp"
             android:id="@+id/chinesefood"
             android:textSize="40dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/gmmedium"
             android:drawableLeft="@drawable/zhongsik"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
@@ -40,7 +40,7 @@
             android:layout_height="100dp"
             android:layout_width="411dp"
             android:textSize="40dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
             android:drawableLeft="@drawable/ilsik"
             android:layout_marginBottom="10dp"
@@ -51,7 +51,7 @@
             android:layout_width="411dp"
             android:drawableLeft="@drawable/yangsik"
             android:textSize="40dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/gmmedium"
             android:layout_marginBottom="10dp"
             android:background="@color/colorPeachpuff"
             android:text="양식"/>
@@ -62,7 +62,7 @@
             android:drawableLeft="@drawable/bunsik"
             android:textSize="40dp"
             android:layout_marginBottom="10dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
             android:text="분식"/>
 
@@ -72,7 +72,7 @@
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/cafe"
             android:textSize="40dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/gmmedium"
             android:background="@color/colorPeachpuff"
             android:text="카페"/>
 
