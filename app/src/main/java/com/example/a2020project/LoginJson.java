@@ -21,6 +21,7 @@ public class LoginJson extends AsyncTask<String, Void, String> {
         String name = strings[1];
         String email = strings[2];
         String kid = strings[3];
+        Log.d("JSonCheck", "이름은"+strings[1]);
 
         try {
             url = new URL(strings[0]);
@@ -40,6 +41,7 @@ public class LoginJson extends AsyncTask<String, Void, String> {
                 result.append(line);
             }
 
+            Log.d("JSonCheck2", "이름은"+strings[1]);
             reader.close();
 
         }catch (Exception e) {

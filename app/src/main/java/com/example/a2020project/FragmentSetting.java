@@ -34,11 +34,12 @@ public class FragmentSetting extends Fragment {
         if(Nick_name != null){
             loginBtn.setImageResource(R.drawable.logout);
             nameText.setText(intent.getStringExtra("NICKNAME")+"님 반갑습니다. ");
+            Log.d("check", intent.getStringExtra("NICKNAME")+"  "+intent.getStringExtra("E-MAIL")+"  "+intent.getStringExtra("USER_ID"));
         }
         else {
             loginBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    Intent intent = new Intent(getActivity(), Login.class);
 
                     startActivityForResult(intent, sub);
                 }

@@ -19,8 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".LoginActivity"></activity>
         <meta-data
 
             android:name="com.kakao.sdk.AppKey"
@@ -28,6 +26,8 @@
             android:value="@string/kakao_app_key" />
         <activity android:name=".MainActivity"/>
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".Login"/>
+        <activity android:name=".SignUPActivity"/>
 
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->

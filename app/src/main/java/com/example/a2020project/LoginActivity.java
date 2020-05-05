@@ -30,10 +30,12 @@ public class LoginActivity extends AppCompatActivity {
     public static final String NICKNAME = "nick";
     public static final String USER_ID = "id";
     public static final String PROFILE_IMG = "img";
+    String kid, email, name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
             @Override
@@ -69,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onSessionOpened() {
 
+
             UserManagement.getInstance()
                     .me(new MeV2ResponseCallback() {
                         @Override
@@ -89,10 +92,10 @@ public class LoginActivity extends AppCompatActivity {
                             if (kakaoAccount != null) {
 
                                 // 이메일
-                                String email = kakaoAccount.getEmail();
+                                String mail = kakaoAccount.getEmail();
 
-                                if (email != null) {
-                                    Log.i("KAKAO_API", "email: " + email);
+                                if (mail != null) {
+                                    Log.i("KAKAO_API", "email: " + mail);
 
                                 } else if (kakaoAccount.emailNeedsAgreement() == OptionalBoolean.TRUE) {
                                     // 동의 요청 후 이메일 획득 가능
@@ -116,6 +119,15 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d("check","nickName check" + nickName);
                                     intent.putExtra("USER_ID",String.valueOf(result.getId()));
                                     intent.putExtra("PROFILE_IMG",profile.getProfileImageUrl());
+                                    intent.putExtra("E-MAIL", mail);
+
+                                    try {
+                                        LoginJson loginTask = new LoginJson();
+                                        String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/login.php", name, email, kid));
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                        Log.e("tag","In catch");
+                                    }
 
                                     startActivity(intent);
                                     finish();
