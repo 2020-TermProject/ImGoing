@@ -1,58 +1,52 @@
-@@ -0,0 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="20dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#ff000000"
-        android:background="#e9e9e9"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:src="@drawable/splash_logo"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#ff000000"
+            android:textSize="30dp"
+            android:fontFamily="@font/gmmedium"
+            android:text="회원가입" />
+    </LinearLayout>
+
+    <TextView
+    android:id="@+id/Sign_up_StoreNumber"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="60dp"
+    android:layout_marginTop="80dp"
+    android:textSize="25dp"
+    android:textColor="#000000"
+    android:fontFamily="@font/gmmedium"
+    android:text="식당 이름" />
+
+    <EditText
+        android:id="@+id/StoreNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="5dp"
+        android:hint="식당이름을 입력해주세요."
         android:textSize="30dp"
-        android:fontFamily="@font/gmmedium"
-        android:text="회원가입" />
-
-    <com.kakao.usermgmt.LoginButton
-        android:id="@+id/com_kakao_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_weight="20dp" />
-
-    <TextView
-        android:id="@+id/KakaoID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="60dp"
-        android:layout_marginTop="20dp"
-        android:textSize="25dp"
-        android:fontFamily="@font/gmmedium"
-        android:text="KakaoID" />
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="60dp"
-        android:layout_marginTop="20dp"
-        android:textSize="25dp"
-        android:fontFamily="@font/gmmedium"
-        android:text="name" />
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="60dp"
-        android:layout_marginTop="20dp"
-        android:textSize="25dp"
-        android:fontFamily="@font/gmmedium"
-        android:text="email" />
-
-
+        android:fontFamily="@font/gmmedium"/>
 
     <TextView
         android:id="@+id/textview_restaurantName"
@@ -61,8 +55,9 @@
         android:layout_weight="60dp"
         android:layout_marginTop="20dp"
         android:textSize="25dp"
+        android:textColor="#000000"
         android:fontFamily="@font/gmmedium"
-        android:text="Restaurant Name" />
+        android:text="사업자 번호" />
 
     <EditText
         android:id="@+id/restaurantName"
@@ -72,9 +67,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_marginTop="5dp"
+        android:hint="사업자 번호를 입력해주세요."
         android:textSize="30dp"
         android:fontFamily="@font/gmmedium"
-        android:text="RestaurantName" />
+        />
 
     <TextView
         android:id="@+id/textview_category"
@@ -83,7 +79,8 @@
         android:layout_marginTop="20dp"
         android:layout_weight="60dp"
         android:fontFamily="@font/gmmedium"
-        android:text="Category"
+        android:textColor="#000000"
+        android:text="카테고리"
         android:textSize="25dp" />
 
     <Spinner
@@ -94,7 +91,8 @@
         android:entries="@array/카테고리"
         android:gravity="right"
         android:textColor="0xffffff"
-        android:textSize="30dp"></Spinner>
+        android:textSize="30dp"
+        />
 
     <TextView
         android:id="@+id/restaurantLocation"
@@ -103,7 +101,8 @@
         android:layout_marginTop="20dp"
         android:layout_weight="60dp"
         android:fontFamily="@font/gmmedium"
-        android:text="restaurantLocation"
+        android:textColor="#000000"
+        android:text="식당 위치"
         android:textSize="25dp" />
 
     <Button
