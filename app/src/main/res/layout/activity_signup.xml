@@ -112,7 +112,7 @@
             android:inputType="textPersonName"
             android:layout_marginTop="5dp"
             android:hint="사업자 번호를 입력해주세요."
-            android:textSize="30dp"
+            android:textSize="28dp"
             android:fontFamily="@font/gmlight"
             />
 
