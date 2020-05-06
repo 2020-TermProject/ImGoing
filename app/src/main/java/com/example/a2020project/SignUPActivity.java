@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -21,18 +24,40 @@ import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckBox;
 
 public class SignUPActivity extends AppCompatActivity {
     SessionCallback callback;
     public static final String NICKNAME = "nick";
     public static final String USER_ID = "id";
     public static final String PROFILE_IMG = "img";
-    String kid, email, name;
+    String kid, email, name, userowner, restaurantName, businessNo, category, restaurantLongitude, restaurantLatitude;
     public Button backButton;
+    public EditText restaurantNameTextBox;
+    public EditText businessNoTextBox;
+    public Spinner spinnerCategory;
+    public Button findButton;
+
+
     public static final int sub = 1001;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        //hide the options for user
+        restaurantNameTextBox = (EditText) findViewById(R.id.restaurantName);
+        businessNoTextBox = (EditText) findViewById(R.id.businessNo);
+        spinnerCategory = (Spinner) findViewById(R.id.txt_question_type);
+        findButton = (Button) findViewById(R.id.locationfind);
+        ((TextView) findViewById(R.id.textview_restaurantName)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.textview_businessNo)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.textview_category)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.restaurantLocation)).setVisibility(View.GONE);
+        restaurantNameTextBox.setVisibility(View.GONE);
+        businessNoTextBox.setVisibility(View.GONE);
+        spinnerCategory.setVisibility(View.GONE);
+        findButton.setVisibility(View.GONE);
+
         backButton =(Button)findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -40,6 +65,7 @@ public class SignUPActivity extends AppCompatActivity {
 
             }
         });
+
 
         UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
             @Override
@@ -52,6 +78,34 @@ public class SignUPActivity extends AppCompatActivity {
         callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);
     }
+
+
+//
+    public void hideOptions(View view){
+        AppCompatCheckBox appCompatCheckBox = (AppCompatCheckBox)view;
+        if(appCompatCheckBox.isChecked()) {
+            ((TextView) findViewById(R.id.textview_restaurantName)).setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.textview_businessNo)).setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.textview_category)).setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.restaurantLocation)).setVisibility(View.VISIBLE);
+            restaurantNameTextBox.setVisibility(View.VISIBLE);
+            businessNoTextBox.setVisibility(View.VISIBLE);
+            spinnerCategory.setVisibility(View.VISIBLE);
+            findButton.setVisibility(View.VISIBLE);
+        }
+        else{
+            ((TextView) findViewById(R.id.textview_restaurantName)).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.textview_businessNo)).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.textview_category)).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.restaurantLocation)).setVisibility(View.GONE);
+            restaurantNameTextBox.setVisibility(View.GONE);
+            businessNoTextBox.setVisibility(View.GONE);
+            spinnerCategory.setVisibility(View.GONE);
+            findButton.setVisibility(View.GONE);
+        }
+    }
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //간편로그인시 호출 ,없으면 간편로그인시 로그인 성공화면으로 넘어가지 않음
         if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
@@ -124,14 +178,7 @@ public class SignUPActivity extends AppCompatActivity {
                                     intent.putExtra("E-MAIL", mail);
                                     name = nickName;
                                     kid = String.valueOf(result.getId());
-                                    try {
-                                        LoginJson loginTask = new LoginJson();
-                                        String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/login.php", name, email, kid));
 
-                                    }catch (Exception e){
-                                        e.printStackTrace();
-                                        Log.e("tag","In catch");
-                                    }
                                     //finish();
                                     startActivity(intent);
                                 } else if (kakaoAccount.profileNeedsAgreement() == OptionalBoolean.TRUE) {
