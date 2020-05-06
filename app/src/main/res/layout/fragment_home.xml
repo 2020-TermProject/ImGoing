@@ -13,6 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
     <TextView
+        android:id="@+id/text_whatEat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gmlight"
@@ -23,6 +24,17 @@
         android:textColor="#000000"
         android:textSize="20dp"
         android:layout_below="@+id/home_logo"/>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/naver_map"
+        android:name="com.naver.maps.map.MapFragment"
+        android:layout_below="@+id/text_whatEat"
+        android:layout_margin="20dp"
+        app:navermap_latitude="35.1798159"
+        app:navermap_longitude="129.0750222"
+        app:navermap_zoom="13"/>
 
 
 </RelativeLayout>
