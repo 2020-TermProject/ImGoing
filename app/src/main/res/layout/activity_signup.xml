@@ -62,7 +62,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/Sign_up_StoreNumber"
+        android:id="@+id/textview_restaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -74,7 +74,7 @@
         />
 
     <EditText
-        android:id="@+id/StoreNumber"
+        android:id="@+id/restaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -82,11 +82,11 @@
         android:layout_marginTop="5dp"
         android:hint="식당이름을 입력해주세요."
         android:textSize="30dp"
-        android:fontFamily="@font/gmmedium"
+        android:fontFamily="@font/gmlight"
         android:layout_marginStart="15dp"/>
 
     <TextView
-        android:id="@+id/textview_restaurantName"
+        android:id="@+id/textview_businessNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -97,16 +97,17 @@
         android:layout_marginStart="15dp"/>
 
     <EditText
-        android:id="@+id/restaurantName"
+        android:id="@+id/businessNo"
         android:layout_width="359dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
         android:ems="10"
-        android:fontFamily="@font/gmmedium"
-        android:hint="사업자 번호를 입력해주세요."
         android:inputType="textPersonName"
-        android:textSize="28dp" />
+        android:layout_marginTop="5dp"
+        android:hint="사업자 번호를 입력해주세요."
+        android:textSize="30dp"
+        android:fontFamily="@font/gmlight"
+        />
 
     <TextView
         android:id="@+id/textview_category"
