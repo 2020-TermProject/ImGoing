@@ -130,7 +130,7 @@ public class SignUPActivity extends AppCompatActivity {
 
         }catch (Exception e){
             e.printStackTrace();
-            Log.e("tag","In catch");
+            Log.e("tag","In cat");
         }
 
     }
