@@ -105,6 +105,36 @@ public class SignUPActivity extends AppCompatActivity {
         }
     }
 
+    public void startSignup(View v){
+        AppCompatCheckBox appCompatCheckBox = (AppCompatCheckBox) findViewById(R.id.UserOwnerCheck);
+
+
+        String owneruser;
+        if(appCompatCheckBox.isChecked()) {
+            restaurantName = ((EditText) findViewById(R.id.restaurantName)).getText().toString();
+            businessNo = ((EditText) findViewById(R.id.businessNo)).getText().toString();
+            category = ((Spinner) findViewById(R.id.txt_question_type)).getSelectedItem().toString();
+            owneruser = "o";
+        }
+        else{
+            restaurantName = "";
+            businessNo = "";
+            category = "";
+            owneruser = "u";
+        }
+
+
+        try {
+            SignUp signupTask = new SignUp();
+            String msg = String.valueOf(signupTask.execute("http://khprince.com/restaurantApp/login.php", "abc","kakaak", "hi11","o","1212","kdkd","123123","111","1222"/*name, email, kid, owneruser , restaurantName, businessNo,  category ,"restaurantLatitude", "restaurantLongitude"*/));
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("tag","In catch");
+        }
+
+    }
+
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //간편로그인시 호출 ,없으면 간편로그인시 로그인 성공화면으로 넘어가지 않음
@@ -178,6 +208,7 @@ public class SignUPActivity extends AppCompatActivity {
                                     intent.putExtra("E-MAIL", mail);
                                     name = nickName;
                                     kid = String.valueOf(result.getId());
+                                    Log.e("name is ", name);
 
                                     //finish();
                                     startActivity(intent);

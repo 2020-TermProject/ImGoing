@@ -37,16 +37,22 @@ public class SignUp extends AsyncTask<String, Void, String> {
             urlConnection.setConnectTimeout(15000);
             urlConnection.setDoOutput(true);
             urlConnection.setRequestMethod("POST");
+            Log.e("name is", name);
+            Log.e("email is", email);
+            Log.e("name is", kid);
+            Log.e("name is", owneruser);
+
+
 
             js.put("email", email);
             js.put("userName", name);
             js.put("kid", kid);
             js.put("owneruser", owneruser);
-            js.put("retaurantName", restaurantName);
+            js.put("restaurantName", restaurantName);
             js.put("businessNo", businessNo);
             js.put("category", category);
             js.put("restaurantLatitude", restaurantLatitude);
-            js.put("retaurantLongitude", restaurantLongitude);
+            js.put("restaurantLongitude", restaurantLongitude);
 
             String message = js.toString();
             String data = URLEncoder.encode("postData", "UTF-8") + "=" + URLEncoder.encode(message, "UTF-8");
@@ -54,6 +60,18 @@ public class SignUp extends AsyncTask<String, Void, String> {
             OutputStreamWriter outr = new OutputStreamWriter(urlConnection.getOutputStream());
             outr.write(data);
             outr.flush();
+
+
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            InputStreamReader isr = new InputStreamReader(in);
+            BufferedReader reader = new BufferedReader(isr);
+            String line = null;
+            while((line = reader.readLine()) != null) {
+                result.append(line);
+                Log.d("try check","while");
+            }
+
+            reader.close();
 
         }catch (Exception e) {
             e.printStackTrace();
