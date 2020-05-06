@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+        bottomNavigationView.setSelectedItemId(R.id.home);
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
