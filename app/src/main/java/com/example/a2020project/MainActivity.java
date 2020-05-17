@@ -1,7 +1,13 @@
 package com.example.a2020project;
 
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -13,6 +19,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.security.MessageDigest;
+
 
 public class MainActivity extends AppCompatActivity {
     public static final int sub = 1001;
@@ -23,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
     private FragmentCategory fragmentCategory = new FragmentCategory();
     private FragmentHome fragmentHome = new FragmentHome();
     private FragmentSetting fragmentSetting = new FragmentSetting();
-
+    private Context mConetext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mConetext = getApplicationContext();
+        getHashKey(mConetext);
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragmentHome).commitAllowingStateLoss();
@@ -64,6 +76,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public static String getHashKey(Context context) {
+        final String TAG = "KeyHash";
+        String keyHash = null;
+        try {
+            PackageInfo info =
+                    context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                keyHash = new String(Base64.encode(md.digest(), 0));
+                Log.d(TAG, keyHash);
+            }
+        } catch (Exception e) {
+            Log.e("name not found", e.toString());
+        }
+        if (keyHash != null) {
+            return keyHash;
+        } else {
+            return null;
+        }
+    }
+
 
 
 //    @Override
