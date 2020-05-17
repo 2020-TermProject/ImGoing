@@ -22,6 +22,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.security.MessageDigest;
 
 
+
+
 public class MainActivity extends AppCompatActivity {
     public static final int sub = 1001;
     public ImageButton loginBtn;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentHome fragmentHome = new FragmentHome();
     private FragmentSetting fragmentSetting = new FragmentSetting();
     private Context mConetext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
