@@ -10,6 +10,7 @@
         android:layout_height="100dp"
         android:src="@drawable/home_logo"
         android:id="@+id/home_logo"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
         />
     <TextView
