@@ -1,6 +1,4 @@
 package com.example.a2020project;
-
-public class chinesefood {
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
