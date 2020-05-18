@@ -25,8 +25,6 @@ public class FragmentCategory extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_category, container, false);
-    }
 
         View v = inflater.inflate(R.layout.fragment_category, container, false);
         Intent intent = ((Activity) getActivity()).getIntent();
