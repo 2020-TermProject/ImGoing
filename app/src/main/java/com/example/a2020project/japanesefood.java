@@ -1,6 +1,5 @@
 package com.example.a2020project;
 
-public class japanesefood {
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
