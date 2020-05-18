@@ -5,5 +5,13 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBrown">#A52A2A</color>
+    <color name="colorsalmon">#FA8072</color>
+    <color name="colorcyan">#00FFFF</color>
+    <color name="steelblue">#4682B4</color>
+    <color name="powderblue">#B0E0E6</color>
+    <color name="colorlightcyan">#E0FFFF</color>
+    <color name="colorlightpink">#FFB6C1</color>
     <color name="colorPeachpuff">#FFDAB9</color>
+    <color name="colorkhaki">#F0E68C</color>
+    <color name="colorseashell">#FFFFF5EE</color>
 </resources>

@@ -35,6 +35,14 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".Login"/>
         <activity android:name=".SignUPActivity"/>
+        <activity android:name=".koreanfood"/>
+        <activity android:name=".chinesefood"/>
+        <activity android:name=".japanesefood"/>
+        <activity android:name=".yangsikfood"/>
+        <activity android:name=".bunsikfood"/>
+        <activity android:name=".cafefood"/>
+
+
 
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->

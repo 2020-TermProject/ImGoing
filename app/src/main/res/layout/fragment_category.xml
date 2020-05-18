@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="horizontal"
+    android:background="@color/colorseashell"
+
+
     android:id="@+id/layout" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -12,43 +15,57 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cafefont"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:text="Category"/>
+
+
+
         <Button
-            android:layout_height="80dp"
-            android:layout_width="411dp"
             android:id="@+id/koreanfood"
+            android:layout_width="382dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/josun"
+
+
             android:drawableLeft="@drawable/hansik"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center_horizontal"
-
-
-            android:textSize="40dp"
-            android:fontFamily="@font/gmmedium"
-            android:background="@color/colorPeachpuff"
-            android:text="한식" />
-
+            android:fontFamily="@font/ganafont"
+            android:text="한식"
+            android:textSize="40dp" />
 
 
         <Button
-            android:layout_height="80dp"
-            android:layout_width="411dp"
-
             android:id="@+id/chinesefood"
-            android:textSize="40dp"
-            android:fontFamily="@font/gmmedium"
-            android:drawableLeft="@drawable/zhongsik"
-            android:layout_marginBottom="10dp"
+            android:layout_width="382dp"
+
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:background="@color/colorPeachpuff"
-            android:text="중식"/>
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/josun"
+            android:drawableLeft="@drawable/zhongsik"
+            android:fontFamily="@font/ganafont"
+            android:text="중식"
+            android:textSize="40dp" />
 
 
         <Button
+            android:id="@+id/japanesefood"
             android:layout_height="80dp"
-            android:layout_width="411dp"
+            android:layout_width="382dp"
+
 
             android:textSize="40dp"
-            android:fontFamily="@font/gmmedium"
-            android:background="@color/colorPeachpuff"
+            android:fontFamily="@font/ganafont"
+
+            android:background="@drawable/josun"
             android:drawableLeft="@drawable/ilsik"
             android:layout_marginBottom="10dp"
             android:text="일식"/>
@@ -56,37 +73,41 @@
 
         <Button
             android:layout_height="80dp"
-            android:layout_width="411dp"
-
+            android:layout_width="382dp"
+            android:id="@+id/yangsikfood"
             android:drawableLeft="@drawable/yangsik"
             android:textSize="40dp"
-            android:fontFamily="@font/gmmedium"
+            android:fontFamily="@font/ganafont"
+
             android:layout_marginBottom="10dp"
-            android:background="@color/colorPeachpuff"
+            android:background="@drawable/josun"
             android:text="양식"/>
 
 
         <Button
             android:layout_height="80dp"
-            android:layout_width="411dp"
+            android:layout_width="382dp"
 
             android:drawableLeft="@drawable/bunsik"
+            android:id="@+id/bunsikfood"
             android:textSize="40dp"
+
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/gmmedium"
-            android:background="@color/colorPeachpuff"
+            android:fontFamily="@font/ganafont"
+            android:background="@drawable/josun"
             android:text="분식"/>
 
 
         <Button
             android:layout_height="80dp"
-            android:layout_width="411dp"
-
+            android:layout_width="382dp"
+            android:id="@+id/cafefood"
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/cafe"
             android:textSize="40dp"
-            android:fontFamily="@font/gmmedium"
-            android:background="@color/colorPeachpuff"
+
+            android:fontFamily="@font/ganafont"
+            android:background="@drawable/josun"
             android:text="카페"/>
 
 
