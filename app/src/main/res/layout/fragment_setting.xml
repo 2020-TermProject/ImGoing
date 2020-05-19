@@ -45,46 +45,55 @@
         android:layout_height="80dp"
         android:layout_marginTop="50dp"
         android:id="@+id/setting_Point"
+        android:drawableRight="@drawable/arrow"
         android:background="@drawable/btn_background"
         app:layout_constraintTop_toBottomOf="@+id/setting_Text"
         android:text="포인트"
         android:textSize="30dp"
+        android:textAlignment="viewStart"
+        android:paddingStart="10dp"
         android:fontFamily="@font/gmmedium"
          />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="10dp"
+        android:drawableRight="@drawable/arrow"
         android:id="@+id/login"
         android:background="@drawable/btn_background"
-        app:layout_constraintTop_toBottomOf="@+id/setting_Point"
+        app:layout_constraintTop_toBottomOf="@+id/setting_History"
         android:text="로그인"
         android:textSize="30dp"
+        android:textAlignment="viewStart"
+        android:paddingStart="10dp"
         android:fontFamily="@font/gmmedium"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="10dp"
+        android:drawableRight="@drawable/arrow"
         android:id="@+id/setting_Information"
         android:background="@drawable/btn_background"
-        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/setting_Point"
         android:text="개인정보 수정"
         android:textSize="30dp"
+        android:textAlignment="viewStart"
+        android:paddingStart="10dp"
         android:fontFamily="@font/gmmedium"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="10dp"
+        android:drawableRight="@drawable/arrow"
         android:id="@+id/setting_History"
         android:background="@drawable/btn_background"
         app:layout_constraintTop_toBottomOf="@+id/setting_Information"
         android:text="방문내역"
         android:textSize="30dp"
+        android:textAlignment="viewStart"
+        android:paddingStart="10dp"
         android:fontFamily="@font/gmmedium"
         />
 
