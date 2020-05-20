@@ -126,7 +126,7 @@ public class SignUPActivity extends AppCompatActivity {
 
         try {
             SignUp signupTask = new SignUp();
-            String msg = String.valueOf(signupTask.execute("http://khprince.com/restaurantApp/login.php", "abc","kakaak", "hi11","o","1212","kdkd","123123","111","1222"/*name, email, kid, owneruser , restaurantName, businessNo,  category ,"restaurantLatitude", "restaurantLongitude"*/));
+            String msg = String.valueOf(signupTask.execute("http://khprince.com/restaurantApp/login.php",name, email, kid, owneruser , restaurantName, businessNo,  category ,"restaurantLatitude", "restaurantLongitude"));
 
         }catch (Exception e){
             e.printStackTrace();

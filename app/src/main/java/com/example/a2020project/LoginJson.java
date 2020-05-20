@@ -51,6 +51,7 @@ public class LoginJson extends AsyncTask<String, Void, String> {
             Log.d("try check","Buffer2");
             BufferedReader reader = new BufferedReader(isr);
             Log.d("try check","Buffer3");
+
             String line = null;
             while((line = reader.readLine()) != null) {
                 result.append(line);

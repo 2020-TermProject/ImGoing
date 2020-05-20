@@ -42,11 +42,9 @@ public class SearchJson extends AsyncTask<String, Void, String> {
             outr.flush();
 
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            Log.d("try check","Buffer1");
             InputStreamReader isr = new InputStreamReader(in);
-            Log.d("try check","Buffer2");
             BufferedReader reader = new BufferedReader(isr);
-            Log.d("try check","Buffer3");
+
             String line = null;
             while((line = reader.readLine()) != null) {
                 result.append(line);
