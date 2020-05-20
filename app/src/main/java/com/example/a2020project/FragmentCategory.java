@@ -2,14 +2,11 @@ package com.example.a2020project;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,37 +34,37 @@ public class FragmentCategory extends Fragment {
 
         koreanfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), koreanfood.class);
+                Intent intent = new Intent(getActivity(), Category_koreanfood.class);
                 startActivityForResult(intent, sub);
             }
         });
         chinesefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), chinesefood.class);
+                Intent intent = new Intent(getActivity(), Category_chinesefood.class);
                 startActivityForResult(intent, sub);
             }
         });
         japanesefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), japanesefood.class);
+                Intent intent = new Intent(getActivity(), Category_japanesefood.class);
                 startActivityForResult(intent, sub);
             }
         });
         yangsikfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), yangsikfood.class);
+                Intent intent = new Intent(getActivity(), Category_yangsikfood.class);
                 startActivityForResult(intent, sub);
             }
         });
         bunsikfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), bunsikfood.class);
+                Intent intent = new Intent(getActivity(), Category_bunsikfood.class);
                 startActivityForResult(intent, sub);
             }
         });
         cafefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), cafefood.class);
+                Intent intent = new Intent(getActivity(), Category_cafefood.class);
                 startActivityForResult(intent, sub);
             }
         });

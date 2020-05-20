@@ -35,12 +35,12 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".Login"/>
         <activity android:name=".SignUPActivity"/>
-        <activity android:name=".koreanfood"/>
-        <activity android:name=".chinesefood"/>
-        <activity android:name=".japanesefood"/>
-        <activity android:name=".yangsikfood"/>
-        <activity android:name=".bunsikfood"/>
-        <activity android:name=".cafefood"/>
+        <activity android:name=".Category_koreanfood"/>
+        <activity android:name=".Category_chinesefood"/>
+        <activity android:name=".Category_japanesefood"/>
+        <activity android:name=".Category_yangsikfood"/>
+        <activity android:name=".Category_bunsikfood"/>
+        <activity android:name=".Category_cafefood"/>
 
 
 
