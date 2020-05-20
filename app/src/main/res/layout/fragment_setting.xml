@@ -42,7 +42,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginTop="50dp"
         android:id="@+id/setting_Point"
         android:drawableRight="@drawable/arrow"
@@ -57,7 +57,7 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:drawableRight="@drawable/arrow"
         android:id="@+id/login"
         android:background="@drawable/btn_background"
@@ -71,7 +71,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:drawableRight="@drawable/arrow"
         android:id="@+id/setting_Information"
         android:background="@drawable/btn_background"
@@ -85,7 +85,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:drawableRight="@drawable/arrow"
         android:id="@+id/setting_History"
         android:background="@drawable/btn_background"
