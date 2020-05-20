@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentSetting extends Fragment {
     ImageButton loginBtn;
-    TextView nameText;
+    //TextView nameText;
     //Context mContext;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
@@ -28,12 +28,12 @@ public class FragmentSetting extends Fragment {
         String Nick_name = intent.getStringExtra("NICKNAME");
 
         loginBtn = (ImageButton)v.findViewById(R.id.login);
-        nameText =(TextView)v.findViewById(R.id.namebox);
-        loginBtn = (ImageButton)v.findViewById(R.id.login);
+        //nameText =(TextView)v.findViewById(R.id.namebox);
+        //loginBtn = (ImageButton)v.findViewById(R.id.login);
         Log.d("nickname", Nick_name + "확인되었습니다");
         if(Nick_name != null){
             loginBtn.setImageResource(R.drawable.logout);
-            nameText.setText(intent.getStringExtra("NICKNAME")+"님 반갑습니다. ");
+            //nameText.setText(intent.getStringExtra("NICKNAME")+"님 반갑습니다. ");
             Log.d("check", intent.getStringExtra("NICKNAME")+"  "+intent.getStringExtra("E-MAIL")+"  "+intent.getStringExtra("USER_ID"));
         }
         else {

@@ -49,10 +49,19 @@ public class FragmentSearch extends Fragment {
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //검색 창에 아무 단어도 안 넣었을 시
                 if(searchText.getText().toString().length()==0){
                     Toast.makeText(getActivity(), "검색어를 입력해 주세요.", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    try {
+                        //로그인 서버로 검색어 보내기
+                        SearchJson loginTask = new SearchJson();
+                        String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/login.php", searchText.getText().toString()));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        Log.e("tag","검색 단어 서버로 보내기 실패");
+                    }
                     ContentValues values=new ContentValues();
                     values.put("name", searchText.getText().toString());
                     Intent intent = ((Activity) getActivity()).getIntent();
@@ -65,8 +74,6 @@ public class FragmentSearch extends Fragment {
 
         // Send the data from search to database
         //Bring back the result and show it
-
-
 
         c = db.query("searchdata",null, null, null, null, null, null);
 
