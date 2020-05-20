@@ -31,6 +31,7 @@ public class Category_koreanfood extends AppCompatActivity {
                 String availableSeat = (String)resultInJson.get(i).get("availableSeat");
 
                 i++;
+                Log.e("category",restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat);
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -74,17 +74,10 @@ public class FragmentSearch extends Fragment {
                             String availableSeat = (String)resultInJson.get(i).get("availableSeat");
 
                             i++;
+                            //하나씩 뽑아서 여기에 나옴
+                            Log.e("search",restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat);
+                            Toast.makeText(getActivity(),restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat, Toast.LENGTH_SHORT).show();
                         }
-
-
-
-
-
-
-
-
-
-
                     }catch (Exception e){
                         e.printStackTrace();
                         Log.e("tag","검색 단어 서버로 보내기 실패");

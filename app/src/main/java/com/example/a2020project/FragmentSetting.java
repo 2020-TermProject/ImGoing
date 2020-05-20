@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class FragmentSetting extends Fragment {
-    ImageButton loginBtn;
+    Button loginBtn;
     //TextView nameText;
     //Context mContext;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -27,12 +28,14 @@ public class FragmentSetting extends Fragment {
         Intent intent = ((Activity) getActivity()).getIntent();
         String Nick_name = intent.getStringExtra("NICKNAME");
 
-        loginBtn = (ImageButton)v.findViewById(R.id.login);
+        //loginBtn = (ImageButton)v.findViewById(R.id.login);
+        loginBtn = v.findViewById(R.id.login);
         //nameText =(TextView)v.findViewById(R.id.namebox);
         //loginBtn = (ImageButton)v.findViewById(R.id.login);
         Log.d("nickname", Nick_name + "확인되었습니다");
         if(Nick_name != null){
-            loginBtn.setImageResource(R.drawable.logout);
+            //로그인 버튼 지금 imageButton이 아닌 그냥 버튼으로 만들어놔서 주석 처리 해놨습니다
+            //loginBtn.setImageResource(R.drawable.logout);
             //nameText.setText(intent.getStringExtra("NICKNAME")+"님 반갑습니다. ");
             Log.d("check", intent.getStringExtra("NICKNAME")+"  "+intent.getStringExtra("E-MAIL")+"  "+intent.getStringExtra("USER_ID"));
         }
