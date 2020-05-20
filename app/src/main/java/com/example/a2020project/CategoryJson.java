@@ -14,14 +14,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class SearchJson extends AsyncTask<String, Void, String> {
+public class CategoryJson extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings){
         StringBuilder result = new StringBuilder();
         HttpURLConnection urlConnection;
         URL url = null;
         JSONObject js = new JSONObject();
-        String search = strings[1];
-        Log.d("search - JSonCheck", "검색한 이름은 "+strings[1]);
+        String cate = strings[1];
+        Log.d("cate - JSonCheck", "카테고리 이름은 " + strings[1]);
 
         try {
             Log.d("try check","진입성공");
@@ -33,10 +33,10 @@ public class SearchJson extends AsyncTask<String, Void, String> {
             urlConnection.setRequestMethod("POST");
             Log.d("try check","Post");
 
-            js.put("searchName", search);
+            js.put("CategoryName", cate);
             String message = js.toString();
             String data = URLEncoder.encode("postData", "UTF-8") + "=" + URLEncoder.encode(message, "UTF-8");
-            Log.e("jsonData",data);
+            Log.e("Category jsonData",data);
             OutputStreamWriter outr = new OutputStreamWriter(urlConnection.getOutputStream());
             outr.write(data);
             outr.flush();
