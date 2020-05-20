@@ -72,6 +72,7 @@ public class FragmentSearch extends Fragment {
                             String restaurantLatitude = (String)resultInJson.get(i).get("restaurantLatitude");
                             String reservedSeat = (String)resultInJson.get(i).get("reservedSeat");
                             String availableSeat = (String)resultInJson.get(i).get("availableSeat");
+
                             i++;
                         }
 

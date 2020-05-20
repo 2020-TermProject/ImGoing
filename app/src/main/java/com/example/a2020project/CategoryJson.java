@@ -13,10 +13,11 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
-public class CategoryJson extends AsyncTask<String, Void, String> {
-    protected String doInBackground(String... strings){
-        StringBuilder result = new StringBuilder();
+public class CategoryJson extends AsyncTask<String, Void, ArrayList<JSONObject>> {
+    protected ArrayList<JSONObject> doInBackground(String... strings){
+        ArrayList<JSONObject> jsonList = new ArrayList<JSONObject>();
         HttpURLConnection urlConnection;
         URL url = null;
         JSONObject js = new JSONObject();
@@ -49,7 +50,7 @@ public class CategoryJson extends AsyncTask<String, Void, String> {
             Log.d("try check","Buffer3");
             String line = null;
             while((line = reader.readLine()) != null) {
-                result.append(line);
+                jsonList.add(new JSONObject(line));
                 Log.d("try check","while");
             }
             
@@ -61,6 +62,6 @@ public class CategoryJson extends AsyncTask<String, Void, String> {
             Log.d("try check", "error");
         }
 
-        return result.toString();
+        return jsonList;
     }
 }
