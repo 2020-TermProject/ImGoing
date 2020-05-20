@@ -23,7 +23,7 @@
         android:layout_marginLeft="100dp"
         android:src="@drawable/splash_logo"
         android:id="@+id/setting_logo"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_Text"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
@@ -36,7 +36,7 @@
         android:layout_marginLeft="80dp"
         android:fontFamily="@font/gmmedium"
         android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toBottomOf="@id/setting_logo"
+        app:layout_constraintBottom_toTopOf="@id/setting_logo"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
@@ -47,7 +47,7 @@
         android:id="@+id/setting_Point"
         android:drawableRight="@drawable/arrow"
         android:background="@drawable/btn_background"
-        app:layout_constraintTop_toBottomOf="@+id/setting_Text"
+        app:layout_constraintTop_toBottomOf="@+id/setting_logo"
         android:text="포인트"
         android:textSize="30dp"
         android:textAlignment="viewStart"
