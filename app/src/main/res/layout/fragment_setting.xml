@@ -21,6 +21,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/splash_logo"
         android:id="@+id/setting_logo"
         app:layout_constraintTop_toBottomOf="@id/setting_Text"
@@ -43,7 +44,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/setting_Point"
         android:drawableRight="@drawable/arrow"
         android:background="@drawable/btn_background"
