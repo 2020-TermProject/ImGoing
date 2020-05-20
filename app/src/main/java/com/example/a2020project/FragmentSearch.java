@@ -57,7 +57,7 @@ public class FragmentSearch extends Fragment {
                     try {
                         //로그인 서버로 검색어 보내기
                         SearchJson loginTask = new SearchJson();
-                        String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/login.php", searchText.getText().toString()));
+                        String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/restaurantSearch.php", searchText.getText().toString()));
                     }catch (Exception e){
                         e.printStackTrace();
                         Log.e("tag","검색 단어 서버로 보내기 실패");
