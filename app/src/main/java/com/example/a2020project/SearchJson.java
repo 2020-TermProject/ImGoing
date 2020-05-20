@@ -13,15 +13,16 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
-public class SearchJson extends AsyncTask<String, Void, String> {
-    protected String doInBackground(String... strings){
-        StringBuilder result = new StringBuilder();
+public class SearchJson extends AsyncTask<String, Void, ArrayList<JSONObject>> {
+    protected ArrayList<JSONObject> doInBackground(String... strings){
         HttpURLConnection urlConnection;
         URL url = null;
         JSONObject js = new JSONObject();
         String search = strings[1];
         Log.d("search - JSonCheck", "검색한 이름은 "+strings[1]);
+        ArrayList<JSONObject> jsonList = new ArrayList<JSONObject>();
 
         try {
             Log.d("try check","진입성공");
@@ -47,11 +48,11 @@ public class SearchJson extends AsyncTask<String, Void, String> {
 
             String line = null;
             while((line = reader.readLine()) != null) {
-                result.append(line);
+                jsonList.add(new JSONObject(line));
                 Log.d("try check","while");
             }
 
-            Log.d("JSonCheck2", "이름은"+strings[1]);
+
             reader.close();
 
         }catch (Exception e) {
@@ -59,6 +60,6 @@ public class SearchJson extends AsyncTask<String, Void, String> {
             Log.d("try check", "error");
         }
 
-        return result.toString();
+        return jsonList;
     }
 }
