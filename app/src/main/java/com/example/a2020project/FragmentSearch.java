@@ -25,6 +25,10 @@ import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class FragmentSearch extends Fragment {
     EditText searchText;
     ImageButton searchButton;
@@ -57,7 +61,29 @@ public class FragmentSearch extends Fragment {
                     try {
                         //로그인 서버로 검색어 보내기
                         SearchJson loginTask = new SearchJson();
-                        String msg = String.valueOf(loginTask.execute("http://khprince.com/restaurantApp/restaurantSearch.php", searchText.getText().toString()));
+                        ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/restaurantSearch.php", searchText.getText().toString()).get();
+
+                        int i = 0;
+                        while(i < resultInJson.size()){
+                            String restaurantName = (String)resultInJson.get(i).get("restaurantName");
+                            String ownerName = (String)resultInJson.get(i).get("ownerName");
+                            String category = (String)resultInJson.get(i).get("category");
+                            String restaurantLongitude = (String)resultInJson.get(i).get("restaurantLongitude");
+                            String restaurantLatitude = (String)resultInJson.get(i).get("restaurantLatitude");
+                            String reservedSeat = (String)resultInJson.get(i).get("reservedSeat");
+                            String availableSeat = (String)resultInJson.get(i).get("availableSeat");
+                            i++;
+                        }
+
+
+
+
+
+
+
+
+
+
                     }catch (Exception e){
                         e.printStackTrace();
                         Log.e("tag","검색 단어 서버로 보내기 실패");
