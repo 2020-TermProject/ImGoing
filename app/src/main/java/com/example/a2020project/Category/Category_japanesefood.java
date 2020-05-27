@@ -1,10 +1,13 @@
-package com.example.a2020project;
+package com.example.a2020project.Category;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.a2020project.CategoryJson;
+import com.example.a2020project.R;
 
 import org.json.JSONObject;
 

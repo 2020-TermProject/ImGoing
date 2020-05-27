@@ -35,7 +35,6 @@ public class FragmentSearch extends Fragment {
 
     public DBHelper helper;
     public SQLiteDatabase db;
-
     public Cursor c;
     public SimpleCursorAdapter adapter;
     public ListView list;
@@ -77,6 +76,7 @@ public class FragmentSearch extends Fragment {
                             //하나씩 뽑아서 여기에 나옴
                             Log.e("search",restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat);
                             Toast.makeText(getActivity(),restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat, Toast.LENGTH_SHORT).show();
+
                         }
                     }catch (Exception e){
                         e.printStackTrace();

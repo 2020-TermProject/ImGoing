@@ -1,24 +1,27 @@
-package com.example.a2020project;
-
+package com.example.a2020project.Category;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.a2020project.CategoryJson;
+import com.example.a2020project.R;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Category_koreanfood extends AppCompatActivity {
+public class Category_cafefood extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.koreanfoodlayout);
+        setContentView(R.layout.cafefoodlayout);
+
         try {
-            //서버로 한국 음식 카테고리 정보 보내기.
+            //서버로 음식 카테고리 정보 보내기.
             CategoryJson loginTask = new CategoryJson();
-            ArrayList<JSONObject> resultInJson= loginTask.execute("http://khprince.com/restaurantApp/categorySearch.php", "koreanfood").get();
+            ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/categorySearch.php", "cafefood").get();
 
             int i = 0;
             while(i < resultInJson.size()){
@@ -31,12 +34,10 @@ public class Category_koreanfood extends AppCompatActivity {
                 String availableSeat = (String)resultInJson.get(i).get("availableSeat");
 
                 i++;
-                Log.e("category",restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat);
             }
         }catch (Exception e){
             e.printStackTrace();
             Log.e("tag","fail to send category name to server");
         }
-
     }
 }

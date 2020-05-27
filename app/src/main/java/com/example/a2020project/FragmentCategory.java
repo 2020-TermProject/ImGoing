@@ -12,6 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.a2020project.Category.Category_bunsikfood;
+import com.example.a2020project.Category.Category_cafefood;
+import com.example.a2020project.Category.Category_chinesefood;
+import com.example.a2020project.Category.Category_japanesefood;
+import com.example.a2020project.Category.Category_koreanfood;
+import com.example.a2020project.Category.Category_yangsikfood;
+
 public class FragmentCategory extends Fragment {
     Button koreanfood;
     Button chinesefood;
