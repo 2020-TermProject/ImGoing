@@ -33,13 +33,12 @@
         android:orientation="vertical"
         android:layout_marginTop="80dp">
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listView"
-            android:divider="#999999"
-            android:dividerHeight="1dp">
-        </ListView>
+            android:background="#dddddd"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

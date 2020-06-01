@@ -1,7 +1,9 @@
 package com.example.a2020project;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -36,6 +38,19 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
         bottomNavigationView.setSelectedItemId(R.id.home);
+
+        /*Intent intent = getIntent();
+
+        Log.d("tag","프레그먼트 이동 준비");
+        if(getIntent().getStringExtra("delete")=="true"){
+            Log.d("tag","프레그먼트 이동 성공");
+            transaction.replace(R.id.frameLayout, fragmentSearch).commitAllowingStateLoss();
+        }
+        else{
+            intent.putExtra("delete", "false");
+        }
+        Log.d("tag",intent.getStringExtra("delete"));*/
+
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{

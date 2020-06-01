@@ -23,11 +23,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.a2020project.Recycler.SearchHistoryAdapter;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 public class FragmentSearch extends Fragment {
     EditText searchText;
@@ -37,7 +44,9 @@ public class FragmentSearch extends Fragment {
     public SQLiteDatabase db;
     public Cursor c;
     public SimpleCursorAdapter adapter;
-    public ListView list;
+    public RecyclerView list;
+    public RecyclerView.LayoutManager mLayoutManager;
+    public ArrayList<String> mArray;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
@@ -94,23 +103,25 @@ public class FragmentSearch extends Fragment {
 
         // Send the data from search to database
         //Bring back the result and show it
-
-        c = db.query("searchdata",null, null, null, null, null, null);
+        //_id DESC는 검색어 입력 순서 역순으로 출력
+        c = db.query("searchdata",null, null, null, null, null, "_id DESC");
 
         adapter = null;
         adapter = new SimpleCursorAdapter(getActivity(),
                 android.R.layout.simple_list_item_1, c,
                 new String[]{"name", "latitude", "longitude"},
                 new int[]{android.R.id.text1}, 0);
-        list = (ListView)v.findViewById(R.id.listView);
-        list.setAdapter(adapter);
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list = (RecyclerView) v.findViewById(R.id.recycler_view);
+        list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        SearchHistoryAdapter Adapter = new SearchHistoryAdapter(getActivity(),adapter);
+        list.setAdapter(Adapter);
+        /*list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             }
-        });
+        });*/
+
 
         return v;
 
