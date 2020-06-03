@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.a2020project.DBHelper;
 import com.example.a2020project.FragmentSearch;
 import com.example.a2020project.R;
+import com.example.a2020project.SearchResultActivity;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,8 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     public String s;
     public SQLiteDatabase db;
     public DBHelper helper;
+    //인텐트로 검색했던 결과를 넘기기 위한 text
+    private String searchText;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -43,6 +46,7 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
             super(view);
             delete = view.findViewById(R.id.delete);
             history = view.findViewById(R.id.history);
+
         }
     }
 
@@ -56,7 +60,14 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.searchhistorylayout, parent, false);
-
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent reusltintent = new Intent(v.getContext(), SearchResultActivity.class);
+                reusltintent.putExtra("SEARCH", searchText);
+                context.startActivity(reusltintent);
+            }
+        });
         return new MyViewHolder(v);
     }
 
@@ -69,6 +80,9 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         Cursor cursor = (Cursor)SearchArrayList.getItem(position);
         final String ss = cursor.getString(1);
+        //검색한 것 stirng에 넣기
+        searchText = ss;
+
         myViewHolder.history.setText(ss);
         myViewHolder.history.setOnClickListener(new View.OnClickListener() {
             @Override
