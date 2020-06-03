@@ -25,9 +25,18 @@
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
-            android:src="@drawable/cafe"/>
+            android:src="@drawable/storepage_example"/>
 
-
+        <TextView
+            android:id="@+id/t_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="상호명: "
+            android:layout_toEndOf="@id/ct_Image"
+            android:layout_margin="5dp"
+            android:textColor="#000000"
+            />
         <TextView
             android:id="@+id/ct_restaurantName"
             android:layout_width="wrap_content"
@@ -35,39 +44,80 @@
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
             tools:text="식당이름"
-            android:layout_toRightOf="@+id/ct_Image"
+            android:layout_toRightOf="@+id/t_name"
+            android:layout_margin="5dp"
+            android:textColor="#000000"
             />
+        <!--        <TextView
+                    android:id="@+id/t_cate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="카테고리: "
+                    android:layout_toEndOf="@id/ct_restaurantName"
+                    android:layout_margin="5dp"
+                    android:textColor="#000000"/>-->
 
         <TextView
             android:id="@+id/ct_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="21dp"
             android:layout_toRightOf="@+id/ct_restaurantName"
             android:textSize="20sp"
-            tools:text="카테고리" />
+            tools:text="카테고리"
+            android:layout_margin="5dp"
+            android:textColor="#000000"/>
 
+        <TextView
+            android:id="@+id/t_avail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="가능한 자리: "
+            android:layout_toEndOf="@id/ct_Image"
+            android:layout_margin="5dp"
+            android:layout_below="@id/ct_restaurantName"
+            android:textColor="#000000"/>
         <TextView
             android:id="@+id/ct_availableSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
-            tools:text="가능한 자리"
+            tools:text="1"
             android:layout_below="@id/ct_restaurantName"
-            android:layout_toRightOf="@+id/ct_Image"
+            android:layout_toRightOf="@+id/t_avail"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
             />
+
+        <TextView
+            android:id="@+id/t_rese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="예약 된 자리: "
+            android:layout_toEndOf="@id/ct_availableSeat"
+            android:layout_margin="5dp"
+            android:layout_below="@id/ct_restaurantName"
+            android:textColor="#000000"/>
+
         <TextView
             android:id="@+id/ct_reservedSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="20sp"
-            tools:text="예약 된 자리"
-            android:layout_toRightOf="@id/ct_availableSeat"
             android:layout_below="@id/ct_restaurantName"
-            />
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@id/t_rese"
+            android:textSize="20sp"
+            tools:text="6"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"/>
 
     </RelativeLayout>
 
