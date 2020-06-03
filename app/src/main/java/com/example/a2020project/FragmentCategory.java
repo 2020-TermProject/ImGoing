@@ -42,6 +42,7 @@ public class FragmentCategory extends Fragment {
         koreanfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Category_koreanfood.class);
+                intent.putExtra("Category", "koreanfood");
                 startActivityForResult(intent, sub);
             }
         });

@@ -20,7 +20,7 @@
         >
 
         <ImageView
-            android:id="@+id/sr_Image"
+            android:id="@+id/ct_Image"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
@@ -29,44 +29,44 @@
 
 
         <TextView
-            android:id="@+id/sr_restaurantName"
+            android:id="@+id/ct_restaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
             tools:text="식당이름"
-            android:layout_toRightOf="@+id/sr_Image"
+            android:layout_toRightOf="@+id/ct_Image"
             />
 
         <TextView
-            android:id="@+id/sr_category"
+            android:id="@+id/ct_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="21dp"
-            android:layout_toRightOf="@+id/sr_restaurantName"
+            android:layout_toRightOf="@+id/ct_restaurantName"
             android:textSize="20sp"
             tools:text="카테고리" />
 
         <TextView
-            android:id="@+id/sr_availableSeat"
+            android:id="@+id/ct_availableSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
             tools:text="가능한 자리"
-            android:layout_below="@id/sr_restaurantName"
-            android:layout_toRightOf="@+id/sr_Image"
+            android:layout_below="@id/ct_restaurantName"
+            android:layout_toRightOf="@+id/ct_Image"
             />
         <TextView
-            android:id="@+id/sr_reservedSeat"
+            android:id="@+id/ct_reservedSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
             tools:text="예약 된 자리"
-            android:layout_toRightOf="@id/sr_availableSeat"
-            android:layout_below="@id/sr_restaurantName"
+            android:layout_toRightOf="@id/ct_availableSeat"
+            android:layout_below="@id/ct_restaurantName"
             />
 
     </RelativeLayout>
