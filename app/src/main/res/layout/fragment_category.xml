@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LinearLayout
+<ScrollView
     android:gravity="center_horizontal"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -12,8 +12,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -24,8 +24,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
             android:text="Category"/>
-
-
 
         <Button
             android:id="@+id/koreanfood"
@@ -60,8 +58,7 @@
             android:id="@+id/japanesefood"
             android:layout_height="80dp"
             android:layout_width="382dp"
-
-
+            android:layout_gravity="center_horizontal"
             android:textSize="40dp"
             android:fontFamily="@font/ganafont"
 
@@ -78,7 +75,7 @@
             android:drawableLeft="@drawable/yangsik"
             android:textSize="40dp"
             android:fontFamily="@font/ganafont"
-
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:background="@drawable/josun"
             android:text="양식"/>
@@ -87,7 +84,7 @@
         <Button
             android:layout_height="80dp"
             android:layout_width="382dp"
-
+            android:layout_gravity="center_horizontal"
             android:drawableLeft="@drawable/bunsik"
             android:id="@+id/bunsikfood"
             android:textSize="40dp"
@@ -105,12 +102,10 @@
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/cafe"
             android:textSize="40dp"
-
+            android:layout_gravity="center_horizontal"
             android:fontFamily="@font/ganafont"
             android:background="@drawable/josun"
             android:text="카페"/>
 
-
-
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
