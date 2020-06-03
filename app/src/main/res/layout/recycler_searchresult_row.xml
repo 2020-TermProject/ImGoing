@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,29 +13,59 @@
     android:layout_marginEnd="2dp"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         >
 
-        <ImageView
+<!--        <ImageView
             android:id="@+id/iv_picture"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
-            />
+            />-->
 
         <TextView
-            android:id="@+id/tv_price"
+            android:id="@+id/sr_restaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
-            tools:text="5,000원"
+            tools:text="식당이름"
             />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/sr_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="21dp"
+            android:layout_toRightOf="@+id/sr_restaurantName"
+            android:textSize="20sp"
+            tools:text="카테고리" />
 
-</android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/sr_availableSeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            tools:text="가능한 자리"
+            android:layout_below="@id/sr_restaurantName"
+            />
+        <TextView
+            android:id="@+id/sr_reservedSeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            tools:text="예약 된 자리"
+            android:layout_toRightOf="@id/sr_availableSeat"
+            android:layout_below="@id/sr_restaurantName"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

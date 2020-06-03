@@ -4,9 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.example.a2020project.Recycler.MyAdapter;
 import com.example.a2020project.Recycler.SearchResult;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,11 +32,40 @@ public class SearchResultActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<SearchResult> foodInfoArrayList = new ArrayList<>();
+        Intent secondIntent = getIntent();
+        String message = secondIntent.getStringExtra("SEARCH");
+        Log.e("result", message);
+        ArrayList<SearchResult> searchInfoArrayList = new ArrayList<>();
 //        foodInfoArrayList.add(new SearchResult(R.drawable.strawberry, "5,000원"));
 //        foodInfoArrayList.add(new SearchResult(R.drawable.bread, "4,600원"));
 //        foodInfoArrayList.add(new SearchResult(R.drawable.noodle, "4,000원"));
 //        MyAdapter myAdapter = new MyAdapter(foodInfoArrayList);
 //        mRecyclerView.setAdapter(myAdapter);
+        try {
+            //로그인 서버로 검색어 보내기
+            SearchJson loginTask = new SearchJson();
+            ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/restaurantSearch.php",message).get();
+
+            int i = 0;
+            while(i < resultInJson.size()){
+                String restaurantName = (String)resultInJson.get(i).get("restaurantName");
+                String ownerName = (String)resultInJson.get(i).get("ownerName");
+                String category = (String)resultInJson.get(i).get("category");
+                String restaurantLongitude = (String)resultInJson.get(i).get("restaurantLongitude");
+                String restaurantLatitude = (String)resultInJson.get(i).get("restaurantLatitude");
+                String reservedSeat = (String)resultInJson.get(i).get("reservedSeat");
+                String availableSeat = (String)resultInJson.get(i).get("availableSeat");
+                searchInfoArrayList.add(new SearchResult(restaurantName,ownerName,category,restaurantLongitude,restaurantLatitude,reservedSeat,availableSeat));
+                i++;
+                //하나씩 뽑아서 여기에 나옴
+                Log.e("search",restaurantName + " " + ownerName + " " + category + " " + restaurantLongitude + " " + restaurantLatitude + " " + reservedSeat + " " + availableSeat);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("tag","검색 단어 서버로 보내기 실패");
+        }
+        MyAdapter myAdapter = new MyAdapter(searchInfoArrayList);
+        mRecyclerView.setAdapter(myAdapter);
     }
 }
