@@ -3,6 +3,7 @@ package com.example.a2020project.Category;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,35 +14,41 @@ import com.example.a2020project.CategoryJson;
 import com.example.a2020project.R;
 import com.example.a2020project.Recycler.CategoryAdapter;
 import com.example.a2020project.Recycler.CategoryRow;
-import com.example.a2020project.Recycler.MyAdapter;
-import com.example.a2020project.Recycler.SearchResult;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Category_koreanfood extends AppCompatActivity {
+public class CategoryClass extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
+    TextView setCategoryName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.koreanfoodlayout);
-
+        setContentView(R.layout.categoryfoodlayout);
+        //리사이클러 선언
         mRecyclerView = findViewById(R.id.recycler_category);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-//        Intent secondIntent = getIntent();
-//        String message = secondIntent.getStringExtra("SEARCH");
+        //인텐드 값 받기
+        Intent secondIntent = getIntent();
+        String name = secondIntent.getStringExtra("CategoryName");
+        String category_name = secondIntent.getStringExtra("Category");
+
+        //카테고리 이름 설정
+        setCategoryName = findViewById(R.id.layout_categoryName);
+        setCategoryName.setText(name + " 내가 간다");
 
         ArrayList<CategoryRow> categoryInfoArrayList = new ArrayList<>();
         try {
             //서버로 한국 음식 카테고리 정보 보내기.
             CategoryJson loginTask = new CategoryJson();
-            ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/categorySearch.php", "koreanfood").get();
+            ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/categorySearch.php", category_name).get();
 
             int i = 0;
             while(i < resultInJson.size()){

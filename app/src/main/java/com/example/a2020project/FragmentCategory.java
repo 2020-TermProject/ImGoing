@@ -12,12 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.a2020project.Category.Category_bunsikfood;
-import com.example.a2020project.Category.Category_cafefood;
-import com.example.a2020project.Category.Category_chinesefood;
-import com.example.a2020project.Category.Category_japanesefood;
-import com.example.a2020project.Category.Category_koreanfood;
-import com.example.a2020project.Category.Category_yangsikfood;
+import com.example.a2020project.Category.CategoryClass;
 
 public class FragmentCategory extends Fragment {
     Button koreanfood;
@@ -41,38 +36,49 @@ public class FragmentCategory extends Fragment {
 
         koreanfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Category_koreanfood.class);
+                Intent intent = new Intent(getActivity(), CategoryClass.class);
                 intent.putExtra("Category", "koreanfood");
+                intent.putExtra("CategoryName", "한식");
                 startActivityForResult(intent, sub);
             }
         });
         chinesefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Category_chinesefood.class);
+                Intent intent = new Intent(getActivity(), CategoryClass.class);
+                intent.putExtra("Category", "chinesefood");
+                intent.putExtra("CategoryName", "중식");
                 startActivityForResult(intent, sub);
             }
         });
         japanesefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Category_japanesefood.class);
-                startActivityForResult(intent, sub);
+                Intent intent = new Intent(getActivity(), CategoryClass.class);
+                intent.putExtra("Category", "japanesefood");
+                intent.putExtra("CategoryName", "일식");
+                startActivityForResult(intent, sub);;
             }
         });
         yangsikfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Category_yangsikfood.class);
+                Intent intent = new Intent(getActivity(), CategoryClass.class);
+                intent.putExtra("Category", "yangsikfood");
+                intent.putExtra("CategoryName", "양식");
                 startActivityForResult(intent, sub);
             }
         });
         bunsikfood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Category_bunsikfood.class);
+                Intent intent = new Intent(getActivity(), CategoryClass.class);
+                intent.putExtra("Category", "bunsikfood");
+                intent.putExtra("CategoryName", "분식");
                 startActivityForResult(intent, sub);
             }
         });
         cafefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Category_cafefood.class);
+                Intent intent = new Intent(getActivity(), CategoryClass.class);
+                intent.putExtra("Category", "cafefood");
+                intent.putExtra("CategoryName", "카페");
                 startActivityForResult(intent, sub);
             }
         });

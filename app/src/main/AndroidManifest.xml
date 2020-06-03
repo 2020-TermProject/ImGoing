@@ -31,12 +31,7 @@
 
         <activity android:name=".Login" />
         <activity android:name=".SignUPActivity" />
-        <activity android:name=".Category.Category_koreanfood" />
-        <activity android:name=".Category.Category_chinesefood" />
-        <activity android:name=".Category.Category_japanesefood" />
-        <activity android:name=".Category.Category_yangsikfood" />
-        <activity android:name=".Category.Category_bunsikfood" />
-        <activity android:name=".Category.Category_cafefood" />
+        <activity android:name=".Category.CategoryClass" />
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="akj5qj6wal" />
