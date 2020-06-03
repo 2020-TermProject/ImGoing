@@ -32,6 +32,8 @@
         <activity android:name=".Login" />
         <activity android:name=".SignUPActivity" />
         <activity android:name=".Category.CategoryClass" />
+        <activity android:name=".StorepageActivity" />
+        <activity android:name=".ReservationActivity" />
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="akj5qj6wal" />

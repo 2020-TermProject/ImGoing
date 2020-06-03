@@ -1,5 +1,7 @@
 package com.example.a2020project.Recycler;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,11 +9,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.a2020project.R;
+import com.example.a2020project.StorepageActivity;
+
 import java.util.ArrayList;
 
 //리사이클러 뷰 어뎁터
 public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
+    private Activity context = null;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView ctRestaurantName;
         TextView ctCategory;
@@ -30,7 +34,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     private ArrayList<CategoryRow> categoryInfoArrayList;
 
-    public CategoryAdapter(ArrayList<CategoryRow> categoryInfoArrayList) {
+    public CategoryAdapter(Activity context, ArrayList<CategoryRow> categoryInfoArrayList) {
+        this.context = context;
         this.categoryInfoArrayList = categoryInfoArrayList;
     }
 
@@ -42,6 +47,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 Log.e("recycler cate test","hi");
+                Intent intent = new Intent(context, StorepageActivity.class);
+                context.startActivity(intent);
             }
         });
         return new MyViewHolder(v);

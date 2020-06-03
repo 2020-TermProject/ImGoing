@@ -67,7 +67,7 @@ public class CategoryClass extends AppCompatActivity {
             e.printStackTrace();
             Log.e("tag","fail to send category name to server");
         }
-        CategoryAdapter myAdapter = new CategoryAdapter(categoryInfoArrayList);
+        CategoryAdapter myAdapter = new CategoryAdapter(this, categoryInfoArrayList);
         mRecyclerView.setAdapter(myAdapter);
     }
 }
