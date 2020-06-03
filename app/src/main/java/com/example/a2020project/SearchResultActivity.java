@@ -34,7 +34,12 @@ public class SearchResultActivity extends AppCompatActivity {
 
         Intent secondIntent = getIntent();
         String message = secondIntent.getStringExtra("SEARCH");
-        Log.e("result", message);
+        try {
+            Log.e("result", message);
+        }catch (NullPointerException e){
+            Log.e("result", "null값 넘어옴");
+        }
+
         ArrayList<SearchResult> searchInfoArrayList = new ArrayList<>();
 //        foodInfoArrayList.add(new SearchResult(R.drawable.strawberry, "5,000원"));
 //        foodInfoArrayList.add(new SearchResult(R.drawable.bread, "4,600원"));

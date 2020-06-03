@@ -34,8 +34,6 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     public String s;
     public SQLiteDatabase db;
     public DBHelper helper;
-    //인텐트로 검색했던 결과를 넘기기 위한 text
-    private String searchText;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -60,14 +58,14 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.searchhistorylayout, parent, false);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent reusltintent = new Intent(v.getContext(), SearchResultActivity.class);
-                reusltintent.putExtra("SEARCH", searchText);
-                context.startActivity(reusltintent);
-            }
-        });
+//        v.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent reusltintent = new Intent(v.getContext(), SearchResultActivity.class);
+//                reusltintent.putExtra("SEARCH", searchText);
+//                context.startActivity(reusltintent);
+//            }
+//        });
         return new MyViewHolder(v);
     }
 
@@ -80,15 +78,17 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         Cursor cursor = (Cursor)SearchArrayList.getItem(position);
         final String ss = cursor.getString(1);
-        //검색한 것 stirng에 넣기
-        searchText = ss;
 
         myViewHolder.history.setText(ss);
         myViewHolder.history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //검색기록으로 검색
-                Toast.makeText(context, s+"로 검색했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, ss+"로 검색했습니다.", Toast.LENGTH_SHORT).show();
+                //인텐트로 넘기기
+                Intent reusltintent = new Intent(v.getContext(), SearchResultActivity.class);
+                reusltintent.putExtra("SEARCH", ss);
+                context.startActivity(reusltintent);
             }
         });
         myViewHolder.delete.setOnClickListener(new View.OnClickListener() {
