@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="100dp"
+                android:src="@drawable/splash_logo"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#ff000000"
+                android:textSize="30dp"
+                android:fontFamily="@font/gmmedium"
+                android:text="메뉴 추가" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Sign_up_kakao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gmmedium"
+            android:text="메뉴 이름 "
+            android:layout_marginStart ="15dp"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="5dp"
+            android:hint="메뉴이름을 입력해주세요."
+            android:textSize="30dp"
+            android:fontFamily="@font/gmlight"
+            android:layout_marginStart="15dp"/>
+
+
+        <TextView
+            android:id="@+id/textview_restaurantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gmmedium"
+            android:text="가격"
+            />
+
+        <EditText
+            android:id="@+id/restaurantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="5dp"
+            android:hint="가격을 정해주세요."
+            android:textSize="30dp"
+            android:fontFamily="@font/gmlight"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:id="@+id/textview_businessNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gmmedium"
+            android:text="메뉴 소개"
+            android:layout_marginStart="15dp"/>
+
+        <EditText
+            android:id="@+id/businessNo"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="5dp"
+            android:hint="메뉴 소개를 해주세요."
+            android:textSize="28dp"
+            android:fontFamily="@font/gmlight"
+            />
+
+        <TextView
+            android:id="@+id/textview_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/gmmedium"
+            android:textColor="#000000"
+            android:text="메뉴 사진"
+            android:textSize="25dp"
+            android:layout_marginStart="15dp"/>
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:background="#ffffff">
+
+            <ImageView
+                android:id="@+id/getimage"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:text="사진 첨부"
+                android:textSize="18dp"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/picbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/getimage"/>
+
+            <Button
+                android:id="@+id/takepicture"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="5dp"
+                android:text="사진 촬영"/>
+
+
+
+
+    </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1"/>
+
+        <Button
+            android:id="@+id/sign_up_done"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="메뉴 추가"
+            android:onClick="startSignup"
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Back" />
+
+    </LinearLayout>
+</ScrollView>
