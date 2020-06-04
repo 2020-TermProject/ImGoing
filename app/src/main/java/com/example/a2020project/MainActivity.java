@@ -7,9 +7,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
     Button cameraBtn;
     final static int TAKE_PICTURE = 1;
     Button button;
-
+    private WebView webView;
+    private TextView txt_address;
+    private Handler handler;
 
 
     @Override
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,1);
             }
         });
+
+
 
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
