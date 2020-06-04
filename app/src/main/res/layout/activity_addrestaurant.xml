@@ -102,6 +102,27 @@
             android:fontFamily="@font/gmlight"
             />
         <TextView
+            android:id="@+id/restaurantSeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gmmedium"
+            android:text="가게 좌석 수"
+            android:layout_marginStart="15dp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seatspinner"
+            android:entries="@array/좌석수"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp"/>
+
+
+        <TextView
             android:id="@+id/textview_restaurantTel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
