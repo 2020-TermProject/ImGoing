@@ -32,7 +32,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/Sign_up_kakao"
+            android:id="@+id/menuname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -55,7 +55,7 @@
 
 
         <TextView
-            android:id="@+id/textview_restaurantName"
+            android:id="@+id/textview_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -67,7 +67,7 @@
             />
 
         <EditText
-            android:id="@+id/restaurantName"
+            android:id="@+id/priceN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -79,7 +79,7 @@
             android:layout_marginStart="15dp"/>
 
         <TextView
-            android:id="@+id/textview_businessNo"
+            android:id="@+id/textview_menuinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -90,7 +90,7 @@
             android:layout_marginStart="15dp"/>
 
         <EditText
-            android:id="@+id/businessNo"
+            android:id="@+id/menuinfo"
             android:layout_width="359dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -103,7 +103,7 @@
             />
 
         <TextView
-            android:id="@+id/textview_category"
+            android:id="@+id/textview_menupic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -159,13 +159,13 @@
             app:layout_constraintVertical_weight="1"/>
 
         <Button
-            android:id="@+id/sign_up_done"
+            android:id="@+id/addmenu"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="메뉴 추가"
-            android:onClick="startSignup"
+            android:onClick="addmenu"
             tools:ignore="OnClick" />
 
         <Button
