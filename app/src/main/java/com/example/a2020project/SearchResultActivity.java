@@ -70,7 +70,7 @@ public class SearchResultActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.e("tag","검색 단어 서버로 보내기 실패");
         }
-        MyAdapter myAdapter = new MyAdapter(searchInfoArrayList);
+        MyAdapter myAdapter = new MyAdapter(this, searchInfoArrayList);
         mRecyclerView.setAdapter(myAdapter);
     }
 }
