@@ -25,7 +25,16 @@
         android:textColor="#000000"
         android:textSize="20dp"
         android:layout_below="@+id/home_logo"/>
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/GPSButton"
+        android:src="@drawable/gpsicon"
+        android:background="@android:color/transparent"
+        android:layout_above="@id/naver_map"
+        android:scaleType="centerInside"
 
+        />
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,9 +42,10 @@
         android:name="com.naver.maps.map.MapFragment"
         android:layout_below="@+id/text_whatEat"
         android:layout_margin="20dp"
-        app:navermap_latitude="35.1798159"
-        app:navermap_longitude="129.0750222"
         app:navermap_zoom="13"/>
+        <!--app:navermap_latitude="35.1798159"
+        app:navermap_longitude="129.0750222"-->
+
 
 
 </RelativeLayout>
