@@ -60,16 +60,17 @@ public class MainActivity extends AppCompatActivity {
          */
         imageView = (ImageView)findViewById(R.id.getimage);
         button = (Button)findViewById(R.id.picbutton);
+/*
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent();
-                intent.setType("getimage/*");
+                intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent,1);
             }
         });
-
+*/
 
 
 

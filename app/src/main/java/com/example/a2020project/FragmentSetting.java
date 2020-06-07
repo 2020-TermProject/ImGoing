@@ -13,12 +13,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.a2020project.Recycler.EnrollActivity;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class FragmentSetting extends Fragment {
     Button loginBtn;
+    Button enrollBtn;
     //TextView nameText;
     //Context mContext;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -30,6 +33,7 @@ public class FragmentSetting extends Fragment {
 
         //loginBtn = (ImageButton)v.findViewById(R.id.login);
         loginBtn = v.findViewById(R.id.login);
+        enrollBtn = v.findViewById(R.id.setting_Enroll);
         //nameText =(TextView)v.findViewById(R.id.namebox);
         //loginBtn = (ImageButton)v.findViewById(R.id.login);
         Log.d("nickname", Nick_name + "확인되었습니다");
@@ -43,10 +47,18 @@ public class FragmentSetting extends Fragment {
             loginBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), Login.class);
-
                     startActivityForResult(intent, sub);
                 }
             });
+
+            enrollBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), EnrollActivity.class);
+                    startActivityForResult(intent, sub);
+                }
+            });
+
+
         }
         return v;
     }
