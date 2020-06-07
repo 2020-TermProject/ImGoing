@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         /* 이미지 첨부
          */
         imageView = (ImageView)findViewById(R.id.getimage);
-        button = (Button)findViewById(R.id.picbutton);
+        /*button = (Button)findViewById(R.id.picbutton);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent,1);
             }
-        });
+        });*///에러떠서 주석처리
 
 
 
