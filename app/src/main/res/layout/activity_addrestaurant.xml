@@ -120,8 +120,6 @@
             android:layout_marginLeft="15dp"
             android:layout_alignParentStart="true"
             android:layout_marginTop="15dp"/>
-
-
         <TextView
             android:id="@+id/textview_restaurantTel"
             android:layout_width="wrap_content"
@@ -160,6 +158,13 @@
             android:id="@+id/webView_address"
             android:layout_width="250dp"
             android:layout_height="50dp" />
+        <Button
+            android:id="@+id/test_addresss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주소 테스트용"
+            />
+
         <TextView
             android:id="@+id/txt_address"
             android:layout_width="wrap_content"
@@ -168,7 +173,7 @@
 
 
         <Button
-            android:id="@+id/addmenu"
+            android:id="@+id/goto_addmenu"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

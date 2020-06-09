@@ -25,6 +25,7 @@ public class GPSActivity extends Activity {
     private boolean isAccessCoarseLocation = false;
     private boolean isPermission = false;
 
+
     // GPSTracker class
     private GpsInfo gps;
 

@@ -1,4 +1,4 @@
-package com.example.a2020project.Recycler;
+package com.example.a2020project;
 
 import android.Manifest;
 import android.content.Intent;
@@ -66,6 +66,7 @@ public class AddmenuActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
@@ -80,13 +81,12 @@ public class AddmenuActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }
-        else if(requestCode == 2) {
+        } else if (requestCode == 2) {
             if (resultCode == RESULT_OK) {
                 try {
                     // 선택한 이미지에서 비트맵 생성
                     Bundle bundle = data.getExtras();
-                    Bitmap bitmap = (Bitmap)bundle.get("data");
+                    Bitmap bitmap = (Bitmap) bundle.get("data");
                     imageView.setImageBitmap(bitmap);
                     Log.e("Capture", "Capture ok: ");
                 } catch (Exception e) {

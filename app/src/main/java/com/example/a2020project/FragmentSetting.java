@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import com.example.a2020project.Recycler.EnrollActivity;
+import com.example.a2020project.EnrollActivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
