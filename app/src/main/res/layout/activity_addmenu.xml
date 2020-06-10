@@ -160,7 +160,7 @@
 
 
         <Button
-            android:id="@+id/addmenu"
+            android:id="@+id/restaurant_addmenu"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

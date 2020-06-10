@@ -97,7 +97,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:layout_marginTop="5dp"
-            android:hint="메뉴 소개를 해주세요."
+            android:hint="가게 소개를 해주세요."
             android:textSize="28dp"
             android:fontFamily="@font/gmlight"
             />
@@ -131,6 +131,7 @@
             android:text="가게 전화번호"
             android:layout_marginStart="15dp"/>
 
+
         <EditText
             android:id="@+id/restaurantTel"
             android:layout_width="359dp"
@@ -143,6 +144,29 @@
             android:textSize="28dp"
             android:fontFamily="@font/gmlight"
             />
+        <TextView
+            android:id="@+id/textview_businessNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/gmmedium"
+            android:text="사업자 번호"
+            android:layout_marginStart="15dp"/>
+        <EditText
+            android:id="@+id/businessNo"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="5dp"
+            android:hint="사업자 번호를 입력해주세요."
+            android:textSize="28dp"
+            android:fontFamily="@font/gmlight"
+            />
+
         <TextView
             android:id="@+id/textview_category"
             android:layout_width="wrap_content"
