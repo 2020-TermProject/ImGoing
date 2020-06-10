@@ -151,8 +151,8 @@
 
         <WebView
             android:id="@+id/daum_webview"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginTop="5dp" />
         <TextView
@@ -160,6 +160,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="받은 주소" />
+        <Button
+            android:id="@+id/test_address_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="좌표 번환 테스트"
+            />
 
         <Button
             android:id="@+id/sign_up_done"

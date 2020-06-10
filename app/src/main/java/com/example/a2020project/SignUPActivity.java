@@ -3,17 +3,20 @@ package com.example.a2020project;
 import android.annotation.SuppressLint;
 import android.app.AppComponentFactory;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -31,13 +34,15 @@ import com.kakao.util.helper.log.Logger;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatCheckBox;
 
+import java.io.IOException;
+
 public class SignUPActivity extends AppCompatActivity {
     SessionCallback callback;
     public static final String NICKNAME = "nick";
     public static final String USER_ID = "id";
     public static final String PROFILE_IMG = "img";
     String kid, email, name, userowner, restaurantName, businessNo, category, restaurantLongitude, restaurantLatitude;
-    public Button backButton;
+    public Button backButton, convertTest;
     public EditText restaurantNameTextBox;
     public EditText businessNoTextBox;
     public Spinner spinnerCategory;
@@ -73,6 +78,8 @@ public class SignUPActivity extends AppCompatActivity {
         spinnerCategory.setVisibility(View.GONE);
         webView.setVisibility(View.GONE);
 
+        convertTest = findViewById(R.id.test_address_1);
+
         backButton =(Button)findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -80,7 +87,6 @@ public class SignUPActivity extends AppCompatActivity {
 
             }
         });
-
 
         UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
             @Override
@@ -92,10 +98,29 @@ public class SignUPActivity extends AppCompatActivity {
 
         callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);
+
+        //onClick listener 정리
+        onClick();
     }
 
+    //버튼 클릭했을때 나오는것 여기 정리
+    public void onClick(){
+        convertTest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
+                try {
 
-//
+                    ConvertAddress convert = new ConvertAddress("태평로1가35",getApplicationContext());
+                    double lon = convert.getlon();
+                    double lat = convert.getlat();
+                    Toast.makeText(getApplicationContext(),"태평로1가35의 위치 - \n위도: " + lon + "\n경도: " + lat,Toast.LENGTH_LONG).show();
+                    Log.d("point is"," lon: " + lat + " lon: " + lon);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
     public void hideOptions(View view){
         AppCompatCheckBox appCompatCheckBox = (AppCompatCheckBox)view;
         if(appCompatCheckBox.isChecked()) {
@@ -141,7 +166,7 @@ public class SignUPActivity extends AppCompatActivity {
 
         try {
             SignUp signupTask = new SignUp();
-            String msg = String.valueOf(signupTask.execute("http://khprince.com/restaurantApp/login.php",name, email, kid, owneruser , restaurantName, businessNo,  category ,"restaurantLatitude", "restaurantLongitude"));
+            String msg = String.valueOf(signupTask.execute("http://khprince.com/restaurantApp/signup.php",name, email, kid, owneruser , restaurantName, businessNo,  category ,"restaurantLatitude", "restaurantLongitude"));
 
         }catch (Exception e){
             e.printStackTrace();
@@ -247,26 +272,21 @@ public class SignUPActivity extends AppCompatActivity {
             }
         }
     }
+    @SuppressLint("SetJavaScriptEnabled")
     public void init_webView() {
         // WebView 설정
         webView = (WebView) findViewById(R.id.daum_webview);
 
         // JavaScript 허용
         webView.getSettings().setJavaScriptEnabled(true);
-
         // JavaScript의 window.open 허용
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-
-
         // JavaScript이벤트에 대응할 함수를 정의 한 클래스를 붙여줌
         webView.addJavascriptInterface(new AndroidBridge(), "TestApp");
-
         // web client 를 chrome 으로 설정
         webView.setWebChromeClient(new WebChromeClient());
-
         // webview url load. php 파일 주소
         webView.loadUrl("http://khprince.com/restaurantApp/addressInquiry.php");
-
     }
     private class AndroidBridge {
         @JavascriptInterface

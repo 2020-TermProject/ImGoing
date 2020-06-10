@@ -77,6 +77,7 @@ public class EnrollActivity extends Activity {
                     ConvertAddress convert = new ConvertAddress("태평로1가35",getApplicationContext());
                     double lon = convert.getlon();
                     double lat = convert.getlat();
+                    Toast.makeText(getApplicationContext(),"태평로1가35의 위치 - \n위도: " + lon + "\n경도: " + lat,Toast.LENGTH_LONG).show();
                     Log.d("point is"," lon: " + lat + " lon: " + lon);
                 } catch (IOException e) {
                     e.printStackTrace();
