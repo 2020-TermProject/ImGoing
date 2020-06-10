@@ -36,15 +36,15 @@
 
         />
     <fragment
+        android:id="@+id/naver_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/naver_map"
         android:name="com.naver.maps.map.MapFragment"
         android:layout_below="@+id/text_whatEat"
         android:layout_margin="20dp"
-        app:navermap_zoom="13"/>
-        <!--app:navermap_latitude="35.1798159"
-        app:navermap_longitude="129.0750222"-->
+        app:navermap_zoom="13"
+        app:navermap_latitude="35.231437"
+        app:navermap_longitude="129.085126"/>
 
 
 

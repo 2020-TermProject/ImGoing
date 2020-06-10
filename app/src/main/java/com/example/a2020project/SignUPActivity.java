@@ -110,7 +110,7 @@ public class SignUPActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
                 try {
 
-                    ConvertAddress convert = new ConvertAddress("태평로1가35",getApplicationContext());
+                    ConvertAddress convert = new ConvertAddress("부산대학로64번길6",getApplicationContext());
                     double lon = convert.getlon();
                     double lat = convert.getlat();
                     Toast.makeText(getApplicationContext(),"태평로1가35의 위치 - \n위도: " + lon + "\n경도: " + lat,Toast.LENGTH_LONG).show();
@@ -196,8 +196,6 @@ public class SignUPActivity extends AppCompatActivity {
 
         @Override
         public void onSessionOpened() {
-
-
             UserManagement.getInstance()
                     .me(new MeV2ResponseCallback() {
                         @Override
