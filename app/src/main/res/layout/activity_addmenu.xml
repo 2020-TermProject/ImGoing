@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,7 +160,7 @@
 
 
         <Button
-            android:id="@+id/restaurant_addmenu"
+            android:id="@+id/goto_addmenu"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
