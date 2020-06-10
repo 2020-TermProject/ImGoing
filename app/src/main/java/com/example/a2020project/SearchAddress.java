@@ -47,7 +47,7 @@ public class SearchAddress extends AppCompatActivity {
         webView.setWebChromeClient(new WebChromeClient());
 
         // webview url load. php 파일 주소
-        webView.loadUrl("내 php주소 입력");
+        webView.loadUrl("http://khprince.com/restaurantApp/addressInquiry.php");
 
     }
 

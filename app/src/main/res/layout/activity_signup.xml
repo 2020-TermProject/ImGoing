@@ -149,13 +149,17 @@
             android:text="식당 위치"
             android:textSize="25dp" />
 
-        <Button
-            android:id="@+id/locationfind"
+        <WebView
+            android:id="@+id/daum_webview"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="left"
-            android:layout_marginTop="5dp"
-            android:text="Find" />
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:id="@+id/txt_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="받은 주소" />
 
         <Button
             android:id="@+id/sign_up_done"

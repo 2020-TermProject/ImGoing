@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a2020project.AddmenuActivity;
@@ -23,6 +26,7 @@ public class EnrollActivity extends Activity {
     public Button convertTest;
     private Context context;
     public MainActivity activity;
+
 
     public void onAttach(Activity activity){
         this.activity = (MainActivity) activity;

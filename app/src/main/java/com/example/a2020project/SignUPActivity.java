@@ -1,10 +1,15 @@
 package com.example.a2020project;
 
+import android.annotation.SuppressLint;
 import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -36,7 +41,11 @@ public class SignUPActivity extends AppCompatActivity {
     public EditText restaurantNameTextBox;
     public EditText businessNoTextBox;
     public Spinner spinnerCategory;
-    public Button findButton;
+
+    //주소 찾기
+    private WebView webView;
+    private TextView txt_address;
+    private Handler handler;
 
 
     public static final int sub = 1001;
@@ -44,11 +53,17 @@ public class SignUPActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        //WebView , 주소찾기용
+        txt_address = findViewById(R.id.txt_address);
+        // WebView 초기화
+        init_webView();
+        // 핸들러를 통한 JavaScript 이벤트 반응
+        handler = new Handler();
+
         //hide the options for user
         restaurantNameTextBox = (EditText) findViewById(R.id.restaurantName);
         businessNoTextBox = (EditText) findViewById(R.id.businessNo);
         spinnerCategory = (Spinner) findViewById(R.id.txt_question_type);
-        findButton = (Button) findViewById(R.id.locationfind);
         ((TextView) findViewById(R.id.textview_restaurantName)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.textview_businessNo)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.textview_category)).setVisibility(View.GONE);
@@ -56,7 +71,7 @@ public class SignUPActivity extends AppCompatActivity {
         restaurantNameTextBox.setVisibility(View.GONE);
         businessNoTextBox.setVisibility(View.GONE);
         spinnerCategory.setVisibility(View.GONE);
-        findButton.setVisibility(View.GONE);
+        webView.setVisibility(View.GONE);
 
         backButton =(Button)findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener(){
@@ -91,7 +106,7 @@ public class SignUPActivity extends AppCompatActivity {
             restaurantNameTextBox.setVisibility(View.VISIBLE);
             businessNoTextBox.setVisibility(View.VISIBLE);
             spinnerCategory.setVisibility(View.VISIBLE);
-            findButton.setVisibility(View.VISIBLE);
+            webView.setVisibility(View.VISIBLE);
         }
         else{
             ((TextView) findViewById(R.id.textview_restaurantName)).setVisibility(View.GONE);
@@ -101,7 +116,7 @@ public class SignUPActivity extends AppCompatActivity {
             restaurantNameTextBox.setVisibility(View.GONE);
             businessNoTextBox.setVisibility(View.GONE);
             spinnerCategory.setVisibility(View.GONE);
-            findButton.setVisibility(View.GONE);
+            webView.setVisibility(View.GONE);
         }
     }
 
@@ -230,6 +245,41 @@ public class SignUPActivity extends AppCompatActivity {
             if(exception != null) {
                 Logger.e(exception);
             }
+        }
+    }
+    public void init_webView() {
+        // WebView 설정
+        webView = (WebView) findViewById(R.id.daum_webview);
+
+        // JavaScript 허용
+        webView.getSettings().setJavaScriptEnabled(true);
+
+        // JavaScript의 window.open 허용
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+
+
+        // JavaScript이벤트에 대응할 함수를 정의 한 클래스를 붙여줌
+        webView.addJavascriptInterface(new AndroidBridge(), "TestApp");
+
+        // web client 를 chrome 으로 설정
+        webView.setWebChromeClient(new WebChromeClient());
+
+        // webview url load. php 파일 주소
+        webView.loadUrl("http://khprince.com/restaurantApp/addressInquiry.php");
+
+    }
+    private class AndroidBridge {
+        @JavascriptInterface
+        public void setAddress(final String arg1, final String arg2, final String arg3) {
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    txt_address.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
+
+                    // WebView를 초기화 하지않으면 재사용할 수 없음
+                    init_webView();
+                }
+            });
         }
     }
 }

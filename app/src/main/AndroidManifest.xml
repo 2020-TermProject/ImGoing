@@ -37,6 +37,7 @@
         <activity android:name=".StorepageActivity" />
         <activity android:name=".ReservationActivity" />
         <activity android:name=".GPSActivity"/>
+        <activity android:name=".SearchAddress" />
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="akj5qj6wal" />
