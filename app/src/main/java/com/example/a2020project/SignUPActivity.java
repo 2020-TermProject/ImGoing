@@ -3,6 +3,7 @@ package com.example.a2020project;
 import android.annotation.SuppressLint;
 import android.app.AppComponentFactory;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,11 +13,13 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.webkit.WebSettings;
 
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -37,6 +40,7 @@ import androidx.appcompat.widget.AppCompatCheckBox;
 import java.io.IOException;
 
 public class SignUPActivity extends AppCompatActivity {
+    private WebSettings webSettings;
     SessionCallback callback;
     public static final String NICKNAME = "nick";
     public static final String USER_ID = "id";
@@ -103,6 +107,11 @@ public class SignUPActivity extends AppCompatActivity {
         onClick();
     }
 
+
+    public void onButton26Clicked(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://khprince.com/restaurantApp/addressInquiry.php"));
+        startActivity(intent);
+    }
     //버튼 클릭했을때 나오는것 여기 정리
     public void onClick(){
         convertTest.setOnClickListener(new View.OnClickListener() {
@@ -272,8 +281,9 @@ public class SignUPActivity extends AppCompatActivity {
     }
     @SuppressLint("SetJavaScriptEnabled")
     public void init_webView() {
+
         // WebView 설정
-        webView = (WebView) findViewById(R.id.daum_webview);
+        webView = (WebView) findViewById(R.id.webView_address);
 
         // JavaScript 허용
         webView.getSettings().setJavaScriptEnabled(true);
@@ -283,8 +293,12 @@ public class SignUPActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new AndroidBridge(), "TestApp");
         // web client 를 chrome 으로 설정
         webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebViewClient(new WebViewClient());
         // webview url load. php 파일 주소
         webView.loadUrl("http://khprince.com/restaurantApp/addressInquiry.php");
+        webView.getSettings().setDomStorageEnabled(true);
+        webSettings=webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
     }
     private class AndroidBridge {
         @JavascriptInterface
