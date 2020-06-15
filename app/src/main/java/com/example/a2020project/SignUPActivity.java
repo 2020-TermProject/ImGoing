@@ -63,7 +63,7 @@ public class SignUPActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         //WebView , 주소찾기용
-        txt_address = findViewById(R.id.txt_address);
+        txt_address = findViewById(R.id.sign_txt_address);
         // WebView 초기화
         init_webView();
         // 핸들러를 통한 JavaScript 이벤트 반응
@@ -109,20 +109,20 @@ public class SignUPActivity extends AppCompatActivity {
 
 
     public void onButton26Clicked(View view){
-        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://khprince.com/restaurantApp/addressInquiry.php"));
-        startActivity(intent);
+        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://khprince.com/restaurantApp/addressInquiry.php"));
+        Intent intent = new Intent(getApplicationContext(), SearchAddress.class);
+        startActivityForResult(intent,1001);
     }
     //버튼 클릭했을때 나오는것 여기 정리
     public void onClick(){
         convertTest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
                 try {
 
                     ConvertAddress convert = new ConvertAddress("부산대학로64번길6",getApplicationContext());
                     double lon = convert.getlon();
                     double lat = convert.getlat();
-                    Toast.makeText(getApplicationContext(),"태평로1가35의 위치 - \n위도: " + lon + "\n경도: " + lat,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"부산대학로64번길6의 위치 - \n위도: " + lon + "\n경도: " + lat,Toast.LENGTH_LONG).show();
                     Log.d("point is"," lon: " + lat + " lon: " + lon);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -190,7 +190,9 @@ public class SignUPActivity extends AppCompatActivity {
         if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
             return;
         }
-
+        if(requestCode == 1001){
+            Log.e("주소 받아짐?", "yes");
+        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
