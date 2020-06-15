@@ -18,9 +18,9 @@ public class SearchAddress extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addrestaurant);
+        setContentView(R.layout.activity_searchaddress);
 
-        txt_address = findViewById(R.id.txt_address);
+        txt_address = findViewById(R.id.sign_txt_address);
 
         // WebView 초기화
         init_webView();

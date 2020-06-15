@@ -151,8 +151,8 @@
 
         <WebView
             android:id="@+id/webView_address"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_gravity="left"
             android:layout_marginTop="5dp" />
         <Button
@@ -164,7 +164,7 @@
             android:text="테스트 버튼"
             />
         <TextView
-            android:id="@+id/txt_address"
+            android:id="@+id/sign_txt_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="받은 주소" />

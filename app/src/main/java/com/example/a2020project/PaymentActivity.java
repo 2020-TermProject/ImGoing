@@ -1,5 +1,6 @@
 package com.example.a2020project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,7 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
+        //getIntent().getStringExtra("name");
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, "5ee368298f075100264f267c");
         payBtn=(Button)findViewById(R.id.pay_button);
@@ -54,7 +56,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .setBootExtra(bootExtra)
                 .setUX(UX.PG_DIALOG)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setName("맥북프로's 임다") // 결제할 상품명
+                .setName("김치찌개") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month
                 .setPrice(10000) // 결제할 금액
                 .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
@@ -63,7 +65,12 @@ public class PaymentActivity extends AppCompatActivity {
                     @Override
                     public void onConfirm(@Nullable String message) {
 
-                        if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
+                        if (0 < stuck) {
+                            Bootpay.confirm(message); // 재고가 있을 경우.
+                            Intent intent = new Intent(getApplicationContext(), PayComplete.class);
+                            startActivity(intent);
+                            finish();
+                        }
                         else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
                         Log.d("confirm", message);
                     }
