@@ -169,6 +169,7 @@
             android:onClick="addmenu"
             tools:ignore="OnClick" />
 
+
         <Button
             android:id="@+id/back"
             android:layout_width="291dp"
