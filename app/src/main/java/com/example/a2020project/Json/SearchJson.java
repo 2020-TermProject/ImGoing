@@ -1,4 +1,4 @@
-package com.example.a2020project;
+package com.example.a2020project.Json;
 
 import android.os.AsyncTask;
 import android.util.Log;

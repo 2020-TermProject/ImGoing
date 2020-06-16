@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.a2020project.CategoryJson;
+import com.example.a2020project.Json.CategoryJson;
 import com.example.a2020project.R;
 import com.example.a2020project.Recycler.CategoryAdapter;
 import com.example.a2020project.Recycler.CategoryRow;

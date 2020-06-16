@@ -1,7 +1,6 @@
 package com.example.a2020project;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,27 +8,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
+import com.example.a2020project.Json.CategoryJson;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.CameraUpdate;
-import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.util.FusedLocationSource;
 
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+
+import org.json.JSONObject;
 
 public class FragmentHome extends Fragment implements OnMapReadyCallback {
 
@@ -146,32 +145,31 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
         this.naverMap = naverMap;
         naverMap.setLocationSource(locationSource);
 
-        // 마커들 위치 정의 (대충 1km 간격 동서남북 방향으로 만개씩, 총 4만개)
+        //마커 선언
         markersPosition = new Vector<LatLng>();
-        markersPosition.add(new LatLng(35.23182, 129.0844262));
-        markersPosition.add(new LatLng(35.231851, 129.085381));
-        markersPosition.add(new LatLng(35.231309, 129.084914));
-        markersPosition.add(new LatLng(35.230913, 129.085308));
-        /*for (int x = 0; x < 100; ++x) {
-            for (int y = 0; y < 100; ++y) {
-                markersPosition.add(new LatLng(
-                        initialPosition.latitude - (REFERANCE_LAT * x),
-                        initialPosition.longitude + (REFERANCE_LNG * y)
-                ));
-                markersPosition.add(new LatLng(
-                        initialPosition.latitude + (REFERANCE_LAT * x),
-                        initialPosition.longitude - (REFERANCE_LNG * y)
-                ));
-                markersPosition.add(new LatLng(
-                        initialPosition.latitude + (REFERANCE_LAT * x),
-                        initialPosition.longitude + (REFERANCE_LNG * y)
-                ));
-                markersPosition.add(new LatLng(
-                        initialPosition.latitude - (REFERANCE_LAT * x),
-                        initialPosition.longitude - (REFERANCE_LNG * y)
-                ));
+        //DB에서 restaurant 하나씩 받아 옴
+        try {
+            //서버로 한국 음식 카테고리 정보 보내기.
+            CategoryJson loginTask = new CategoryJson();
+            ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/allRest.php", "nothing").get();
+            int i = 0;
+            while(i < resultInJson.size()){
+                String restaurantName = (String)resultInJson.get(i).get("restaurantName");
+                String ownerName = (String)resultInJson.get(i).get("ownerName");
+                String category = (String)resultInJson.get(i).get("category");
+                String restaurantLongitude = (String)resultInJson.get(i).get("restaurantLongitude");
+                String restaurantLatitude = (String)resultInJson.get(i).get("restaurantLatitude");
+                String reservedSeat = (String)resultInJson.get(i).get("reservedSeat");
+                String availableSeat = (String)resultInJson.get(i).get("availableSeat");
+                i++;
+
+                Log.e("All rest","i: " + i + " " +restaurantName + " " + " " + category + " " + restaurantLongitude + " " + restaurantLatitude);
+                markersPosition.add(new LatLng(Double.parseDouble(restaurantLatitude), Double.parseDouble(restaurantLongitude)));
             }
-        }*/
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("tag","fail to send category name to server");
+        }
 
         // 카메라 이동 되면 호출 되는 이벤트
         naverMap.addOnCameraChangeListener(new NaverMap.OnCameraChangeListener() {

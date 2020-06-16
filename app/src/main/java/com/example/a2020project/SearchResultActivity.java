@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.example.a2020project.Json.SearchJson;
 import com.example.a2020project.Recycler.MyAdapter;
 import com.example.a2020project.Recycler.SearchResult;
 
