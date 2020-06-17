@@ -184,6 +184,10 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                     Marker marker = new Marker();
                     marker.setPosition(markerPosition);
                     marker.setMap(naverMap);
+                    //마커 크기 조절
+                    marker.setWidth(50);
+                    marker.setHeight(80);
+
                     activeMarkers.add(marker);
                 }
             }
