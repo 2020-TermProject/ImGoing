@@ -19,7 +19,7 @@ android {
         }
         python {
             buildPython "D:/Anaconda/python.exe"
-            pip{
+            pip {
                 install "numpy"
                 install "pandas"
                 install "matplotlib"

@@ -47,14 +47,13 @@
         app:navermap_longitude="129.085126"/>
 
 
-
-       <androidx.recyclerview.widget.RecyclerView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_margin="20dp"
-           android:id="@+id/myListView"
-           android:layout_below="@id/naver_map"/>
-
+    <Button
+        android:id="@+id/seeRecommending"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:text="SEE RECOMMENDATIONS"
+        android:layout_below="@id/naver_map"
+        />
 
 
 </RelativeLayout>

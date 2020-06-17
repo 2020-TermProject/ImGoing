@@ -1,6 +1,7 @@
 package com.example.a2020project;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,11 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.chaquo.python.PyObject;
+import com.example.a2020project.Category.CategoryClass;
 import com.example.a2020project.Json.CategoryJson;
 import com.example.a2020project.Recycler.CategoryAdapter;
 import com.example.a2020project.Recycler.CategoryRow;
@@ -43,6 +46,7 @@ import org.json.JSONObject;
 public class FragmentHome extends Fragment implements OnMapReadyCallback {
 
     ImageButton gpsBtn;
+    Button rb;
     private MapView mapView;
     private final int PERMISSIONS_ACCESS_FINE_LOCATION = 1000;
     private final int PERMISSIONS_ACCESS_COARSE_LOCATION = 1001;
@@ -62,50 +66,14 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-        //ID of user
-        String userKID = "sadasp";//(kimMunSeok)
-
-        RecommedationSystemMachineLearning recommedationSystemMachineLearning = new RecommedationSystemMachineLearning();// Class to handle connection between python and android studio
-        recommedationSystemMachineLearning.initiallizePython(this.getContext()); //We need to initiallize it
-        JSONObject recommendedResults = recommedationSystemMachineLearning.runModel(userKID); //The recommended results are in the form of JSON
-
-
-        ArrayList<CategoryRow> categoryInfoArrayList = new ArrayList<>(); // To store all the results
-
-
-
-        try {
-            JSONObject restaurantName = (JSONObject) recommendedResults.get("restaurantName");
-            JSONObject ownerName = (JSONObject) recommendedResults.get("ownerName");
-            JSONObject category = (JSONObject) recommendedResults.get("category");
-            JSONObject restaurantLongitude = (JSONObject) recommendedResults.get("restaurantLongitude");
-            JSONObject restaurantLatitude = (JSONObject) recommendedResults.get("restaurantLatitude");
-            JSONObject reservedSeat = (JSONObject) recommendedResults.get("reservedSeat");
-            JSONObject availableSeat = (JSONObject) recommendedResults.get("availableSeat");
-
-            JSONArray keys = restaurantName.names();
-
-            //Log.d("Python Test:", temp.toString() );
-
-            int i = 0;
-            while(i < keys.length()) {
-                String rName = (String) restaurantName.getString(keys.get(i).toString());
-                String oName = (String) ownerName.getString(keys.get(i).toString());
-                String cat = (String) category.getString(keys.get(i).toString());
-                String restLongitude = (String) restaurantLongitude.getString(keys.get(i).toString());
-                String restLatitude = (String) restaurantLatitude.getString(keys.get(i).toString());
-                String rSeat = (String) reservedSeat.getString(keys.get(i).toString());
-                String aSeat = (String) availableSeat.getString(keys.get(i).toString());
-                i++;
-                Log.e("Python recommendation","i: " + i + " " +rName + " " + " " + cat + " " + restLongitude + " " + restLatitude);
-                categoryInfoArrayList.add(new CategoryRow(rName,oName,cat,restLongitude,restLatitude,rSeat,aSeat));
+        rb = (Button) v.findViewById(R.id.seeRecommending);
+        rb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RecommendationScreen.class);
+                startActivity(intent);
             }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        // We need to put this categoryInfoArrayList to adapter
+        });
 
 
         gpsBtn = (ImageButton) v.findViewById(R.id.GPSButton);
