@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.chaquo.python'
 
 android {
     compileSdkVersion 28
@@ -9,6 +10,27 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        sourceSets {
+            main {
+                python {
+                    srcDirs = ["src/main/python"]
+                }
+            }
+        }
+        python {
+            buildPython "D:/Anaconda/python.exe"
+            pip{
+                install "numpy"
+                install "pandas"
+                install "matplotlib"
+                install "scikit-learn"
+                install "requests"
+
+            }
+        }
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
     }
     buildTypes {
         release {

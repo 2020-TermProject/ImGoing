@@ -35,7 +35,6 @@
         <activity android:name=".SearchAddress" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".PayComplete"/>
-        <activity android:name=".StoremanagementActivity"/>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="akj5qj6wal" />

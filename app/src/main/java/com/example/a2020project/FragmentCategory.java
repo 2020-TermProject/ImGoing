@@ -25,6 +25,8 @@ public class FragmentCategory extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
 
+
+
         View v = inflater.inflate(R.layout.fragment_category, container, false);
         Intent intent = ((Activity) getActivity()).getIntent();
         koreanfood = (Button)v.findViewById(R.id.koreanfood);
@@ -53,7 +55,7 @@ public class FragmentCategory extends Fragment {
         japanesefood.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), CategoryClass.class);
-                intent.putExtra("Category", "japanesefood");
+                intent.putExtra("Category", "japenesefood");
                 intent.putExtra("CategoryName", "일식");
                 startActivityForResult(intent, sub);;
             }
