@@ -187,7 +187,8 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                     //마커 크기 조절
                     marker.setWidth(50);
                     marker.setHeight(80);
-
+                    //마커 겹치면 지우기
+                    marker.setHideCollidedMarkers(true);
                     activeMarkers.add(marker);
                 }
             }
