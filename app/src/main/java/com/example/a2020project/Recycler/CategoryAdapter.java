@@ -40,7 +40,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, final int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_category_row, parent, false);
         v.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             public void onClick(View v) {
                 Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
+                intent.putExtra("restaurantName", categoryInfoArrayList.get(viewType).restaurantName);
                 context.startActivity(intent);
             }
         });

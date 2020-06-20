@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class StorepageActivity extends AppCompatActivity {
     Button reservationBtn;
+    TextView storeName;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storepage);
@@ -20,5 +22,7 @@ public class StorepageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        storeName = (TextView)findViewById(R.id.storepage_StoreName);
+        storeName.setText(getIntent().getStringExtra("restaurantName"));
     }
 }
