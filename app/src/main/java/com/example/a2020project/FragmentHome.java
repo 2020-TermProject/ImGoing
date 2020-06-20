@@ -1,6 +1,7 @@
 package com.example.a2020project;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -25,7 +26,9 @@ import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.overlay.InfoWindow;
 import com.naver.maps.map.overlay.Marker;
+import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.util.FusedLocationSource;
 import com.naver.maps.map.util.MarkerIcons;
 
@@ -50,11 +53,14 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
     private GpsInfo gps;
     private Marker marker = new Marker();
     private Marker restMaker = new Marker();
+    Context context;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_home, container, false);
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+        //context 받아오기
+        context = getContext();
 
         rb = (Button) v.findViewById(R.id.seeRecommending);
         rb.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +248,39 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                             marker.setIconTintColor(Color.GRAY);
                             break;
                     }
-                    //
+                    InfoWindow infoWindow = new InfoWindow();
+                    infoWindow.setAdapter(new InfoWindow.DefaultTextAdapter(context) {
+                        @NonNull
+                        @Override
+                        public CharSequence getText(@NonNull InfoWindow infoWindow) {
+                            return "식당이름: " + markerPosition.restaurantName;
+                        }
+                    });
+                    infoWindow.setOnClickListener(new Overlay.OnClickListener() {
+                        @Override
+                        public boolean onClick(@NonNull Overlay overlay) {
+                            Log.e("woowong", "hihihihi");
+                            return false;
+                        }
+                    });
+                    // 지도를 클릭하면 정보 창을 닫음
+                    naverMap.setOnMapClickListener((coord, point) -> {
+                        infoWindow.close();
+                    });
+                    // 마커를 클릭하면:
+                    Overlay.OnClickListener listener = overlay -> {
+                        Marker markerAA = (Marker)overlay;
+                        if (markerAA.getInfoWindow() == null) {
+                            // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+                            infoWindow.open(markerAA);
+                        } else {
+                            // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
+                            infoWindow.close();
+                        }
+                        return true;
+                    };
+
+                    marker.setOnClickListener(listener);
                     activeMarkers.add(marker);
                 }
             }
