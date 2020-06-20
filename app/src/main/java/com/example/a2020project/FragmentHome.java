@@ -108,10 +108,6 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        //테스트2
-        LatLng tempCoord = new LatLng(35.23182, 129.0844262);
-        restMaker.setPosition(tempCoord);
-        marker.setMap(naverMap);
 
         mapView = (MapView) v.findViewById(R.id.naver_map);
         mapView.getMapAsync(this);
