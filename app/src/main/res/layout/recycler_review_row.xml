@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginStart="2dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginBottom="1dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="구매자"
+            android:textColor="@color/colorBlack"
+            android:textSize="30dp"
+            android:id="@+id/recycler_user"
+            android:fontFamily="@font/gmmedium"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_user_id"
+            tools:text="id"
+            android:textSize="30dp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/gmmedium"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/recycler_user"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_review"
+            android:layout_below="@id/recycler_user_id"
+            tools:text="리뷰하기"
+            android:textColor="@color/colorBlack"
+            android:textSize="25dp"
+            android:fontFamily="@font/gmmedium"
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

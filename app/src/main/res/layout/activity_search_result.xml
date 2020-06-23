@@ -6,15 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".SearchResultActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/splash_logo"
+        android:id="@+id/searchResult_Image"
+        android:layout_marginLeft="40dp"
+        />
+
     <TextView
         android:id="@+id/searchReslutTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"
-        android:fontFamily="@font/cafefont"
-        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/gmmedium"
+        android:textColor="@color/colorBlack"
+        android:layout_toRightOf="@id/searchResult_Image"
         android:text="검색 결과"
         android:textSize="50dp" />
 
