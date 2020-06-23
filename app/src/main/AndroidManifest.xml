@@ -49,6 +49,8 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".PayComplete" />
         <activity android:name=".StoremanagementActivity"/>
+        <activity android:name=".ReviewActivity"/>
+        <activity android:name=".WritereviewActivity"/>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

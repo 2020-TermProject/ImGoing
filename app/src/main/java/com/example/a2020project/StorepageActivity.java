@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StorepageActivity extends AppCompatActivity {
     Button reservationBtn;
+    Button reviewBtn;
     TextView storeName;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +20,19 @@ public class StorepageActivity extends AppCompatActivity {
         reservationBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), ReservationActivity.class);
+                intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
                 startActivity(intent);
             }
         });
+        reviewBtn = (Button)findViewById(R.id.storepage_Review);
+        reviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ReviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
         storeName = (TextView)findViewById(R.id.storepage_StoreName);
         storeName.setText(getIntent().getStringExtra("restaurantName"));
     }
