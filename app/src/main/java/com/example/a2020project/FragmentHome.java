@@ -185,7 +185,7 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                 String availableSeat = (String)resultInJson.get(i).get("availableSeat");
                 i++;
                 //클래스를 만들어서 해당 정보들을 저장하여 넘겨아 할 듯 ㅇㅇ
-                Log.e("All rest","i: " + i + " " +restaurantName + " " + " " + category + " " + restaurantLongitude + " " + restaurantLatitude);
+                //Log.e("All rest","i: " + i + " " +restaurantName + " " + " " + category + " " + restaurantLongitude + " " + restaurantLatitude);
 
                 restaurantData.add(restaurantName, ownerName, category, Double.parseDouble(restaurantLatitude), Double.parseDouble(restaurantLongitude), Integer.parseInt(reservedSeat),Integer.parseInt(availableSeat));
                 markersData.add(restaurantData);
@@ -253,15 +253,16 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                         @NonNull
                         @Override
                         public CharSequence getText(@NonNull InfoWindow infoWindow) {
-                            return "식당이름: " + markerPosition.restaurantName;
+                            //정보창에 띄우는 글
+                            return convertHE(markerPosition.category) + ": " + markerPosition.restaurantName;
                         }
                     });
-                    infoWindow.setOnClickListener(new Overlay.OnClickListener() {
-                        @Override
-                        public boolean onClick(@NonNull Overlay overlay) {
-                            Log.e("woowong", "hihihihi");
-                            return false;
-                        }
+                    //정보 창 onClickListener
+                    infoWindow.setOnClickListener(overlay -> {
+                        Intent intent = new Intent(context, StorepageActivity.class);
+                        intent.putExtra("restaurantName", markerPosition.restaurantName);
+                        context.startActivity(intent);
+                        return false;
                     });
                     // 지도를 클릭하면 정보 창을 닫음
                     naverMap.setOnMapClickListener((coord, point) -> {
@@ -279,7 +280,6 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                         }
                         return true;
                     };
-
                     marker.setOnClickListener(listener);
                     activeMarkers.add(marker);
                 }
@@ -320,6 +320,25 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
         }
         activeMarkers = new Vector<Marker>();
     }
+    //식당이름 한영 전환
+    private String convertHE(String english){
+        switch (english){
+            case "koreanfood":
+                return "한식";
+            case "chinesefood":
+                return "중식";
+            case "japenesefood":
+                return "일식";
+            case "yangsikfood":
+                return "양식";
+            case "bunsikfood":
+                return "분식";
+            case "cafefood":
+                return "카페";
+        }
+        return "해당하는 카테고리는 없습니다";
+    }
+    //식당 정보가 들어있는 데이터 클래스
     static class RestaurantData{
         String restaurantName, ownerName, category;
         double restaurantLatitude, restaurantLongitude;

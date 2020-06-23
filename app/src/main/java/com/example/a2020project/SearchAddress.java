@@ -48,7 +48,6 @@ public class SearchAddress extends AppCompatActivity {
 
         // webview url load. php 파일 주소
         webView.loadUrl("http://khprince.com/restaurantApp/addressInquiry.php");
-
         webView.getSettings().setDomStorageEnabled(true);
 
     }

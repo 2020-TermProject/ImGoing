@@ -46,7 +46,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
                 intent.putExtra("restaurantName", categoryInfoArrayList.get(viewType).restaurantName);
                 context.startActivity(intent);
