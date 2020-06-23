@@ -40,17 +40,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, final int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_category_row, parent, false);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, StorepageActivity.class);
-                intent.putExtra("restaurantName", categoryInfoArrayList.get(viewType).restaurantName);
-                context.startActivity(intent);
-            }
-        });
         return new MyViewHolder(v);
     }
 
@@ -58,11 +50,49 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         MyViewHolder myViewHolder = (MyViewHolder) holder;
+        final String rename = categoryInfoArrayList.get(position).restaurantName;
 
         myViewHolder.ctRestaurantName.setText(categoryInfoArrayList.get(position).restaurantName);
         myViewHolder.ctCategory.setText(categoryInfoArrayList.get(position).category);
         myViewHolder.ctAvailableSeat.setText(categoryInfoArrayList.get(position).availableSeat);
         myViewHolder.ctReservedSeat.setText(categoryInfoArrayList.get(position).reservedSeat);
+        myViewHolder.ctRestaurantName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("recycler cate test","hi");
+                Intent intent = new Intent(context, StorepageActivity.class);
+                intent.putExtra("restaurantName", rename);
+                context.startActivity(intent);
+            }
+        });
+        myViewHolder.ctCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("recycler cate test","hi");
+                Intent intent = new Intent(context, StorepageActivity.class);
+                intent.putExtra("restaurantName", rename);
+                context.startActivity(intent);
+            }
+        });
+        myViewHolder.ctAvailableSeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("recycler cate test","hi");
+                Intent intent = new Intent(context, StorepageActivity.class);
+                intent.putExtra("restaurantName", rename);
+                context.startActivity(intent);
+            }
+        });
+        myViewHolder.ctReservedSeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("recycler cate test","hi");
+                Intent intent = new Intent(context, StorepageActivity.class);
+                intent.putExtra("restaurantName", rename);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
