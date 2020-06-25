@@ -56,8 +56,13 @@ public class FragmentSearch extends Fragment {
         db = helper.getReadableDatabase();
         helper.onCreate(db);
 
-        searchText = (EditText)v.findViewById(R.id.editSearch) ;
-        searchButton = (ImageButton)v.findViewById(R.id.search_button);
+        //카카오아이디 받기
+        String Nick_name = getActivity().getIntent().getStringExtra("NICKNAME");
+        String User_ID = getActivity().getIntent().getStringExtra("USER_ID");
+
+
+        searchText = v.findViewById(R.id.editSearch);
+        searchButton = v.findViewById(R.id.search_button);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -70,7 +75,7 @@ public class FragmentSearch extends Fragment {
                     //검색 한 로그를 검색창 밑에 띄어주기 위한 intent
                     ContentValues values=new ContentValues();
                     values.put("name", searchText.getText().toString());
-                    Intent intent = ((Activity) getActivity()).getIntent();
+                    Intent intent = getActivity().getIntent();
                     intent.putExtra("SEARCH", searchText.getText());
                     db.insert("searchdata", null, values);
                     Toast.makeText(getActivity(), searchText.getText() + "로 검색합니다.", Toast.LENGTH_SHORT).show();
@@ -78,6 +83,8 @@ public class FragmentSearch extends Fragment {
                     //검색 결과 보여주는 리사이클러 뷰로 넘어가는
                     Intent reusltintent = new Intent(getActivity(),SearchResultActivity.class);
                     reusltintent.putExtra("SEARCH", serachName);
+                    reusltintent.putExtra("NICKNAME", Nick_name);
+                    reusltintent.putExtra("USER_ID", User_ID);
                     startActivity(reusltintent);
                 }
             }
@@ -93,7 +100,7 @@ public class FragmentSearch extends Fragment {
                 android.R.layout.simple_list_item_1, c,
                 new String[]{"name", "latitude", "longitude"},
                 new int[]{android.R.id.text1}, 0);
-        list = (RecyclerView) v.findViewById(R.id.recycler_view);
+        list = v.findViewById(R.id.recycler_view);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         SearchHistoryAdapter Adapter = new SearchHistoryAdapter(getActivity(),adapter);
         list.setAdapter(Adapter);

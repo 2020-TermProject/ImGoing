@@ -62,6 +62,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
                 intent.putExtra("restaurantName", rename);
+                intent.putExtra("NICKNAME",context.getIntent().getStringExtra("NICKNAME"));
+                intent.putExtra("USER_ID",context.getIntent().getStringExtra("USER_ID"));
                 context.startActivity(intent);
             }
         });
@@ -71,6 +73,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
                 intent.putExtra("restaurantName", rename);
+                intent.putExtra("NICKNAME",context.getIntent().getStringExtra("NICKNAME"));
+                intent.putExtra("USER_ID",context.getIntent().getStringExtra("USER_ID"));
                 context.startActivity(intent);
             }
         });
@@ -80,6 +84,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
                 intent.putExtra("restaurantName", rename);
+                intent.putExtra("NICKNAME",context.getIntent().getStringExtra("NICKNAME"));
+                intent.putExtra("USER_ID",context.getIntent().getStringExtra("USER_ID"));
                 context.startActivity(intent);
             }
         });
@@ -89,6 +95,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
                 intent.putExtra("restaurantName", rename);
+                intent.putExtra("NICKNAME",context.getIntent().getStringExtra("NICKNAME"));
+                intent.putExtra("USER_ID",context.getIntent().getStringExtra("USER_ID"));
                 context.startActivity(intent);
             }
         });

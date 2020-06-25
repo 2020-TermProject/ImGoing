@@ -2,6 +2,7 @@ package com.example.a2020project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ public class StorepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storepage);
 
-        reservationBtn = (Button)findViewById(R.id.storepage_Reserve);
+        reservationBtn = findViewById(R.id.storepage_Reserve);
         reservationBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), ReservationActivity.class);
@@ -24,7 +25,7 @@ public class StorepageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        reviewBtn = (Button)findViewById(R.id.storepage_Review);
+        reviewBtn = findViewById(R.id.storepage_Review);
         reviewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +34,7 @@ public class StorepageActivity extends AppCompatActivity {
             }
         });
 
-        storeName = (TextView)findViewById(R.id.storepage_StoreName);
+        storeName = findViewById(R.id.storepage_StoreName);
         storeName.setText(getIntent().getStringExtra("restaurantName"));
     }
 }

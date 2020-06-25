@@ -17,14 +17,15 @@ public class ReservationActivity extends AppCompatActivity {
     public Spinner resHour;
     public Spinner resMin;
     public EditText resReq;
+    public Button backBtn;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
-        resNum = (Spinner)findViewById(R.id.reservation_Spinner_Number);
-        resHour = (Spinner)findViewById(R.id.reservation_Spinner_Hour);
-        resMin = (Spinner)findViewById(R.id.reservation_Spinner_Minute);
-        resBtn = (Button)findViewById(R.id.reservation_Payment);
-        resReq = (EditText)findViewById(R.id.reservation_Request);
+        resNum = findViewById(R.id.reservation_Spinner_Number);
+        resHour = findViewById(R.id.reservation_Spinner_Hour);
+        resMin = findViewById(R.id.reservation_Spinner_Minute);
+        resBtn = findViewById(R.id.reservation_Payment);
+        resReq = findViewById(R.id.reservation_Request);
         resBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,8 +38,14 @@ public class ReservationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        resName = (TextView)findViewById(R.id.reservation_StoreName);
+        resName = findViewById(R.id.reservation_StoreName);
         resName.setText(getIntent().getStringExtra("restaurantName"));
-
+        backBtn = findViewById(R.id.back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

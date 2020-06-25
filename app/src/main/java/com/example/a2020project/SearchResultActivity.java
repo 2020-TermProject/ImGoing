@@ -27,6 +27,9 @@ public class SearchResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
+        String Nick_name = getIntent().getStringExtra("NICKNAME");
+        String User_ID = getIntent().getStringExtra("USER_ID");
+
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);

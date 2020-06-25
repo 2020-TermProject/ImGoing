@@ -47,6 +47,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
             public void onClick(View v) {
                 Log.e("recycler cate test","hi");
                 Intent intent = new Intent(context, StorepageActivity.class);
+                intent.putExtra("NICKNAME", context.getIntent().getStringExtra("NICKNAME"));
+                intent.putExtra("USER_ID", context.getIntent().getStringExtra("USER_ID"));
                 context.startActivity(intent);
             }
         });

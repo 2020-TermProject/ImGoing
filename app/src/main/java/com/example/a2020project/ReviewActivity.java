@@ -14,12 +14,13 @@ public class ReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
-        reviewBtn = (Button)findViewById(R.id.Review_button);
+        reviewBtn = findViewById(R.id.Review_button);
         reviewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WritereviewActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
