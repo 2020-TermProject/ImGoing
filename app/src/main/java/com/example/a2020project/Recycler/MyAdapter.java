@@ -15,11 +15,13 @@ import java.util.ArrayList;
 //리사이클러 뷰 어뎁터
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private Activity context = null;
+    String restName;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView srRestaurantName;
         TextView srCategory;
         TextView srAvailableSeat;
         TextView srReservedSeat;
+
 
         //row 뷰 하나의 xml을 연결해줌
         MyViewHolder(View view){
@@ -49,6 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
                 Intent intent = new Intent(context, StorepageActivity.class);
                 intent.putExtra("NICKNAME", context.getIntent().getStringExtra("NICKNAME"));
                 intent.putExtra("USER_ID", context.getIntent().getStringExtra("USER_ID"));
+                intent.putExtra("restaurantName",restName);
                 context.startActivity(intent);
             }
         });
@@ -59,7 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         MyViewHolder myViewHolder = (MyViewHolder) holder;
-
+        restName = searchInfoArrayList.get(position).restaurantName;
         myViewHolder.srRestaurantName.setText(searchInfoArrayList.get(position).restaurantName);
         myViewHolder.srCategory.setText(searchInfoArrayList.get(position).category);
         myViewHolder.srAvailableSeat.setText(searchInfoArrayList.get(position).availableSeat);
