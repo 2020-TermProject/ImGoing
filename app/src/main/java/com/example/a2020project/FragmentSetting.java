@@ -24,19 +24,28 @@ public class FragmentSetting extends Fragment {
     Button loginBtn;
     Button enrollBtn;
     Button manageBtn;
+    Button annBtn;
     //TextView nameText;
     //Context mContext;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
         //return inflater.inflate(R.layout.fragment_setting, container, false);
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
-        Intent intent = ((Activity) getActivity()).getIntent();
+        Intent intent = getActivity().getIntent();
         String Nick_name = intent.getStringExtra("NICKNAME");
 
         //loginBtn = (ImageButton)v.findViewById(R.id.login);
         loginBtn = v.findViewById(R.id.login);
         enrollBtn = v.findViewById(R.id.setting_Enroll);
         manageBtn = v.findViewById(R.id.setting_Manage);
+        annBtn = v.findViewById(R.id.setting_Announce);
+        annBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AnnounceActivity.class);
+                startActivity(intent);
+            }
+        });
         //nameText =(TextView)v.findViewById(R.id.namebox);
         //loginBtn = (ImageButton)v.findViewById(R.id.login);
         Log.d("nickname", Nick_name + "확인되었습니다");
