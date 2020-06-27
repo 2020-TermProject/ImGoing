@@ -30,6 +30,14 @@
                 android:textSize="30dp"
                 android:fontFamily="@font/gmmedium"
                 android:text="가게 등록" />
+
+            <Spinner
+                android:id="@+id/SixMoreseat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="15dp"
+                android:entries="@array/좌석수" />
         </LinearLayout>
 
         <TextView
@@ -110,17 +118,82 @@
             android:textSize="25dp"
             android:textColor="#000000"
             android:fontFamily="@font/gmmedium"
-            android:text="가게 좌석 수"
+            android:text="가게 테이블 수"
             android:layout_marginStart="15dp"/>
-
-        <Spinner
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/seatspinner"
-            android:entries="@array/좌석수"
-            android:layout_marginLeft="15dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1인용 테이블"
+                android:textSize="25dp"></TextView>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Oneseat"
+                android:entries="@array/좌석수"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2인용 테이블"
+                android:textSize="25dp"></TextView>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Twoseat"
+                android:entries="@array/좌석수"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4인용 테이블"
+                android:textSize="25dp"></TextView>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Fourseat"
+                android:entries="@array/좌석수"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6인이상 테이블"
+                android:textSize="25dp"></TextView>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sixseat"
+                android:entries="@array/좌석수"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/textview_restaurantTel"
             android:layout_width="wrap_content"
@@ -181,7 +254,7 @@
 
 
         <WebView
-            android:id="@+id/add_webView_address"
+            android:id="@+id/web_addr"
             android:layout_width="250dp"
             android:layout_height="50dp" />
         <Button
