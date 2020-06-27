@@ -88,6 +88,8 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
                 //인텐트로 넘기기
                 Intent reusltintent = new Intent(v.getContext(), SearchResultActivity.class);
                 reusltintent.putExtra("SEARCH", ss);
+                reusltintent.putExtra("NICKNAME", context.getIntent().getStringExtra("NICKNAME"));
+                reusltintent.putExtra("USER_ID", context.getIntent().getStringExtra("USER_ID"));
                 context.startActivity(reusltintent);
             }
         });

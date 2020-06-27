@@ -56,9 +56,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String Nick_name = getIntent().getStringExtra("NICKNAME");
+        String User_ID = getIntent().getStringExtra("USER_ID");
         /* 이미지 첨부
          */
-        imageView = (ImageView)findViewById(R.id.getimage);
+        imageView = findViewById(R.id.getimage);
         /*button = (Button)findViewById(R.id.picbutton);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_CAMERA: {
                 // If request is cancelled, the result arrays are empty.

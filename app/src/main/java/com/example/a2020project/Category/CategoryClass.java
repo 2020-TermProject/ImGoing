@@ -29,6 +29,10 @@ public class CategoryClass extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categoryfoodlayout);
+
+        String Nick_name = getIntent().getStringExtra("NICKNAME");
+        String User_ID = getIntent().getStringExtra("USER_ID");
+
         //리사이클러 선언
         mRecyclerView = findViewById(R.id.recycler_category);
         mRecyclerView.setHasFixedSize(true);

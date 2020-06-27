@@ -51,7 +51,11 @@
         android:id="@+id/seeRecommending"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:text="SEE RECOMMENDATIONS"
+        android:text="오늘의 추천음식 보러가기"
+        android:textColor="@color/colorBlack"
+        android:background="@drawable/btn_fullbackground"
+        android:fontFamily="@font/gmmedium"
+        android:textSize="20dp"
         android:layout_below="@id/naver_map"
         />
 

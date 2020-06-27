@@ -18,19 +18,21 @@ android {
             }
         }
         python {
-            buildPython "D:/Anaconda/python.exe"
+            buildPython "C:\\Users\\taxol\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
             pip {
                 install "numpy"
                 install "pandas"
                 install "matplotlib"
                 install "scikit-learn"
                 install "requests"
-
             }
         }
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8 }
     }
     buildTypes {
         release {

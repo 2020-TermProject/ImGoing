@@ -109,8 +109,8 @@ public class SignUPActivity extends AppCompatActivity {
 
 
     public void onButton26Clicked(View view){
-        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://khprince.com/restaurantApp/addressInquiry.php"));
-        Intent intent = new Intent(getApplicationContext(), SearchAddress.class);
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://khprince.com/restaurantApp/addressInquiry.php"));
+        //Intent intent = new Intent(getApplicationContext(), SearchAddress.class);
         startActivityForResult(intent,1001);
     }
     //버튼 클릭했을때 나오는것 여기 정리
@@ -270,7 +270,6 @@ public class SignUPActivity extends AppCompatActivity {
                             }
                         }
                     });
-
         }
 
         @Override

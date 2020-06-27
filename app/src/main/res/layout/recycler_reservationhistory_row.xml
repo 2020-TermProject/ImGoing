@@ -19,99 +19,100 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/sr_Image"
+            android:id="@+id/RecyclerHistory_Image"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
-            android:src="@drawable/storepage_example" />
+            android:src="@drawable/storepage_example"
+            />
 
         <TextView
-            android:id="@+id/t_name"
+            android:id="@+id/RecyclerHistory_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_toEndOf="@id/sr_Image"
+            android:layout_toEndOf="@id/RecyclerHistory_Image"
             android:text="상호명: "
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/sr_restaurantName"
+            android:id="@+id/RecyclerHistory_restaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
-            android:layout_toRightOf="@+id/t_name"
+            android:layout_toRightOf="@+id/RecyclerHistory_name"
             android:textColor="#000000"
             android:textSize="20sp"
             tools:text="식당이름" />
 
         <TextView
-            android:id="@+id/t_cate"
+            android:id="@+id/RecyclerHistory_cate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_toEndOf="@id/sr_Image"
-            android:layout_below="@+id/t_name"
+            android:layout_toEndOf="@id/RecyclerHistory_Image"
+            android:layout_below="@+id/RecyclerHistory_name"
             android:text="카테고리: "
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/sr_category"
+            android:id="@+id/RecyclerHistory_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
-            android:layout_toEndOf="@id/t_cate"
-            android:layout_below="@+id/t_name"
+            android:layout_toEndOf="@id/RecyclerHistory_cate"
+            android:layout_below="@+id/RecyclerHistory_name"
             android:textColor="#000000"
             android:textSize="20sp"
             tools:text="카테고리" />
 
         <TextView
-            android:id="@+id/t_avail"
+            android:id="@+id/RecyclerHistory_avail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sr_Image"
+            android:layout_below="@id/RecyclerHistory_Image"
             android:layout_marginStart="20dp"
             android:text="가능한 자리: "
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/sr_availableSeat"
+            android:id="@+id/RecyclerHistory_availableSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sr_Image"
+            android:layout_below="@id/RecyclerHistory_Image"
             android:layout_gravity="center_vertical"
             android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@+id/t_avail"
+            android:layout_toRightOf="@+id/RecyclerHistory_avail"
             android:textColor="#000000"
 
             android:textSize="20sp"
             tools:text="1" />
 
         <TextView
-            android:id="@+id/t_rese"
+            android:id="@+id/RecyclerHistory_rese"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sr_Image"
-            android:layout_toEndOf="@id/sr_availableSeat"
+            android:layout_below="@id/RecyclerHistory_Image"
+            android:layout_toEndOf="@id/RecyclerHistory_availableSeat"
             android:text="예약 된 자리: "
             android:layout_marginStart="10dp"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/sr_reservedSeat"
+            android:id="@+id/RecyclerHistory_reservedSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sr_Image"
+            android:layout_below="@id/RecyclerHistory_Image"
             android:layout_gravity="center_vertical"
             android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@id/t_rese"
+            android:layout_toRightOf="@id/RecyclerHistory_rese"
             android:textColor="#000000"
 
             android:textSize="20sp"
