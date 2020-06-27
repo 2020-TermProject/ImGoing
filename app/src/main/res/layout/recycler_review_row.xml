@@ -50,6 +50,15 @@
             android:textSize="25dp"
             android:fontFamily="@font/gmmedium"
             />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="280dp"
+            android:id="@+id/point"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star5_0"
+            />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

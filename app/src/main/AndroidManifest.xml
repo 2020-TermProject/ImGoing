@@ -51,6 +51,7 @@
         <activity android:name=".StoremanagementActivity"/>
         <activity android:name=".ReviewActivity"/>
         <activity android:name=".WritereviewActivity"/>
+        <activity android:name=".AnnounceActivity"/>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
