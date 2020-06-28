@@ -33,6 +33,7 @@ public class FragmentSetting extends Fragment {
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
         Intent intent = getActivity().getIntent();
         String Nick_name = intent.getStringExtra("NICKNAME");
+        String ID = intent.getStringExtra("USER_ID");
 
         //loginBtn = (ImageButton)v.findViewById(R.id.login);
         loginBtn = v.findViewById(R.id.login);
@@ -58,12 +59,16 @@ public class FragmentSetting extends Fragment {
             enrollBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), EnrollActivity.class);
+                    intent.putExtra("USER_ID", ID);
+                    intent.putExtra("NICKNAME",Nick_name);
                     startActivityForResult(intent, sub);
                 }
             });
             manageBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), StoremanagementActivity.class);
+                    intent.putExtra("USER_ID", ID);
+                    intent.putExtra("NICKNAME",Nick_name);
                     startActivityForResult(intent, sub);
                 }
             });
@@ -81,6 +86,8 @@ public class FragmentSetting extends Fragment {
                     myToast.show();
                     //임시로 로그인 안해도 들어갈수 있게 만들어 놨습니다.
                     Intent intent = new Intent(getActivity(), EnrollActivity.class);
+                    intent.putExtra("USER_ID", ID);
+                    intent.putExtra("NICKNAME",Nick_name);
                     startActivityForResult(intent, sub);
                 }
             });
@@ -90,6 +97,8 @@ public class FragmentSetting extends Fragment {
                     myToast.show();
                     //임시로 로그인 안해도 들어갈수 있게 만들어 놨습니다.
                     Intent intent = new Intent(getActivity(), StoremanagementActivity.class);
+                    intent.putExtra("USER_ID", ID);
+                    intent.putExtra("NICKNAME",Nick_name);
                     startActivityForResult(intent, sub);
                 }
             });
