@@ -41,7 +41,7 @@ public class EnrollActivity extends Activity {
         context = getApplicationContext();
 
         addButton = findViewById(R.id.goto_addmenu);
-        convertTest = findViewById(R.id.test_addresss);
+        /*convertTest = findViewById(R.id.test_addresss);*/
         restaurantnameEdit = findViewById(R.id.edit_restaurantname);
         onclick();
 
@@ -74,7 +74,7 @@ public class EnrollActivity extends Activity {
                 startActivityForResult(intent, sub);
             }
         });
-        convertTest.setOnClickListener(new View.OnClickListener() {
+        /*convertTest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
                 try {
@@ -88,6 +88,6 @@ public class EnrollActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,9 +19,15 @@ public class ReviewActivity extends AppCompatActivity {
         reviewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), WritereviewActivity.class);
-                startActivity(intent);
-                finish();
+                if(getIntent().getStringExtra("NICKNAME")!=null){
+                    Intent intent = new Intent(getApplicationContext(), WritereviewActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Toast myToast = Toast.makeText(ReviewActivity.this,"로그인 후 이용해 주세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                }
             }
         });
 
