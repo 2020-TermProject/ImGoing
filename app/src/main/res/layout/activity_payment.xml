@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:id="@+id/pay_button"
-        android:text="결제하기"
+        android:text="카카오 페이로 결제하기"
         android:textSize="30dp"
         android:textColor="@color/colorBlack"
         android:background="@drawable/btn_background"

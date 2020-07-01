@@ -31,6 +31,12 @@ public class StorepageActivity extends AppCompatActivity {
                 else{
                     Toast myToast = Toast.makeText(StorepageActivity.this,"로그인 후 이용해 주세요.", Toast.LENGTH_SHORT);
                     myToast.show();
+                    //임시로 로그인 전에도 사용가능하게
+                    Intent intent = new Intent(getApplicationContext(), ReservationActivity.class);
+                    intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
+                    intent.putExtra("NICKNAME", getIntent().getStringExtra("NICKNAME"));
+                    intent.putExtra("USER_ID",getIntent().getStringExtra("USER_ID"));
+                    startActivity(intent);
                 }
 
             }

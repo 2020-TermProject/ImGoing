@@ -51,6 +51,16 @@ public class ReservationActivity extends AppCompatActivity {
                 else{
                     Toast myToast = Toast.makeText(ReservationActivity.this,"로그인 후 이용해 주세요.", Toast.LENGTH_SHORT);
                     myToast.show();
+                    //임시로 로그인 전에도 사용 가능
+                    Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                    intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
+                    intent.putExtra("number", res2Num.getSelectedItem().toString());
+                    intent.putExtra("hour", resHour.getSelectedItem().toString());
+                    intent.putExtra("minute", resMin.getSelectedItem().toString());
+                    intent.putExtra("request", resReq.getText());
+                    intent.putExtra("NICKNAME",getIntent().getStringExtra("NICKNAME"));
+                    intent.putExtra("USER_ID",getIntent().getStringExtra("USER_ID"));
+                    startActivity(intent);
                 }
 
             }
