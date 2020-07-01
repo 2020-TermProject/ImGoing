@@ -41,6 +41,7 @@ import java.io.IOException;
 
 public class SignUPActivity extends AppCompatActivity {
     private WebSettings webSettings;
+    private WebView webView_address;
     SessionCallback callback;
     public static final String NICKNAME = "nick";
     public static final String USER_ID = "id";
@@ -54,6 +55,7 @@ public class SignUPActivity extends AppCompatActivity {
     //주소 찾기
     private WebView webView;
     private TextView txt_address;
+    private TextView sign_txt_address;
     private Handler handler;
 
 
@@ -63,7 +65,7 @@ public class SignUPActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         //WebView , 주소찾기용
-        txt_address = findViewById(R.id.sign_txt_address);
+        sign_txt_address = findViewById(R.id.sign_txt_address);
         // WebView 초기화
         init_webView();
         // 핸들러를 통한 JavaScript 이벤트 반응
@@ -193,6 +195,7 @@ public class SignUPActivity extends AppCompatActivity {
         if(requestCode == 1001){
             Log.e("주소 받아짐?", "yes");
         }
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -307,10 +310,13 @@ public class SignUPActivity extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    txt_address.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
+                    sign_txt_address.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
 
                     // WebView를 초기화 하지않으면 재사용할 수 없음
                     init_webView();
+                    Intent intent=getIntent();
+                    setResult(RESULT_OK,intent.putExtra("addr",sign_txt_address.getText().toString()));
+                    finish();
                 }
             });
         }
