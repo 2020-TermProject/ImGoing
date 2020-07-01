@@ -14,7 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ReservationActivity extends AppCompatActivity {
     public Button resBtn;
     public TextView resName;
-    public Spinner resNum;
+    public Spinner res1Num;
+    public Spinner res2Num;
+    public Spinner res4Num;
+    public Spinner res6Num;
     public Spinner resHour;
     public Spinner resMin;
     public EditText resReq;
@@ -22,7 +25,10 @@ public class ReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
-        resNum = findViewById(R.id.reservation_Spinner_Number);
+        res1Num = findViewById(R.id.reservation_Spinner_Oneseat);
+        res2Num = findViewById(R.id.reservation_Spinner_Twoseat);
+        res4Num = findViewById(R.id.reservation_Spinner_Fourseat);
+        res6Num = findViewById(R.id.reservation_Spinner_Sixseat);
         resHour = findViewById(R.id.reservation_Spinner_Hour);
         resMin = findViewById(R.id.reservation_Spinner_Minute);
         resBtn = findViewById(R.id.reservation_Payment);
@@ -34,7 +40,7 @@ public class ReservationActivity extends AppCompatActivity {
                 if(getIntent().getStringExtra("NICKNAME")!=null){
                     Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
                     intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
-                    intent.putExtra("number", resNum.getSelectedItem().toString());
+                    intent.putExtra("number", res2Num.getSelectedItem().toString());
                     intent.putExtra("hour", resHour.getSelectedItem().toString());
                     intent.putExtra("minute", resMin.getSelectedItem().toString());
                     intent.putExtra("request", resReq.getText());
