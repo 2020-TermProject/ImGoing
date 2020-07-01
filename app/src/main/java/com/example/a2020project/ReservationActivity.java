@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,16 +27,26 @@ public class ReservationActivity extends AppCompatActivity {
         resMin = findViewById(R.id.reservation_Spinner_Minute);
         resBtn = findViewById(R.id.reservation_Payment);
         resReq = findViewById(R.id.reservation_Request);
+
         resBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
-                intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
-                intent.putExtra("number", resNum.getSelectedItem().toString());
-                intent.putExtra("hour", resHour.getSelectedItem().toString());
-                intent.putExtra("minute", resMin.getSelectedItem().toString());
-                intent.putExtra("request", resReq.getText());
-                startActivity(intent);
+                if(getIntent().getStringExtra("NICKNAME")!=null){
+                    Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                    intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
+                    intent.putExtra("number", resNum.getSelectedItem().toString());
+                    intent.putExtra("hour", resHour.getSelectedItem().toString());
+                    intent.putExtra("minute", resMin.getSelectedItem().toString());
+                    intent.putExtra("request", resReq.getText());
+                    intent.putExtra("NICKNAME",getIntent().getStringExtra("NICKNAME"));
+                    intent.putExtra("USER_ID",getIntent().getStringExtra("USER_ID"));
+                    startActivity(intent);
+                }
+                else{
+                    Toast myToast = Toast.makeText(ReservationActivity.this,"로그인 후 이용해 주세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                }
+
             }
         });
         resName = findViewById(R.id.reservation_StoreName);

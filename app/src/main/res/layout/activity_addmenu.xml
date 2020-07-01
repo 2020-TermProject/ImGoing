@@ -48,6 +48,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:layout_marginTop="5dp"
+            android:id="@+id/menu"
             android:hint="메뉴이름을 입력해주세요."
             android:textSize="30dp"
             android:fontFamily="@font/gmlight"

@@ -57,6 +57,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:layout_marginTop="5dp"
+            android:id="@+id/edit_restaurantname"
             android:hint="가게 이름을 입력해주세요."
             android:textSize="30dp"
             android:fontFamily="@font/gmlight"
@@ -257,18 +258,18 @@
             android:id="@+id/web_addr"
             android:layout_width="250dp"
             android:layout_height="50dp" />
-        <Button
-            android:id="@+id/test_addresss"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="주소 테스트용"
-            />
+<!--        <Button-->
+<!--            android:id="@+id/test_addresss"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="주소 테스트용"-->
+<!--            />-->
 
-        <TextView
-            android:id="@+id/txt_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="받은 주소" />
+<!--        <TextView-->
+<!--            android:id="@+id/txt_address"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="받은 주소" />-->
 
 
         <Button
@@ -278,26 +279,34 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="메뉴 추가"
+            android:textSize="20dp"
+            android:fontFamily="@font/gmmedium"
+            android:textColor="@color/colorBlack"
+            android:background="@drawable/btn_fullbackground"
             android:onClick="startSignup"
             tools:ignore="OnClick" />
 
         <Button
             android:id="@+id/addrestaurant"
-            android:layout_width="291dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="가게 등록"
+            android:fontFamily="@font/gmmedium"
+            android:textColor="@color/colorBlack"
+            android:textSize="30dp"
+            android:background="@drawable/btn_background"
             android:onClick="startSignup"
             tools:ignore="OnClick" />
 
-        <Button
-            android:id="@+id/back"
-            android:layout_width="291dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Back" />
+<!--        <Button-->
+<!--            android:id="@+id/back"-->
+<!--            android:layout_width="291dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="Back" />-->
 
     </LinearLayout>
 </ScrollView>

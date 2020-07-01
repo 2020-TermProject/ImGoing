@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class EnrollActivity extends Activity {
     public Button convertTest;
     private Context context;
     public MainActivity activity;
+    public EditText restaurantnameEdit;
 
 
     public void onAttach(Activity activity){
@@ -38,8 +40,9 @@ public class EnrollActivity extends Activity {
         setContentView(R.layout.activity_addrestaurant);
         context = getApplicationContext();
 
-        addButton = (Button) findViewById(R.id.goto_addmenu);
-        convertTest = findViewById(R.id.test_addresss);
+        addButton = findViewById(R.id.goto_addmenu);
+        /*convertTest = findViewById(R.id.test_addresss);*/
+        restaurantnameEdit = findViewById(R.id.edit_restaurantname);
         onclick();
 
 
@@ -66,10 +69,12 @@ public class EnrollActivity extends Activity {
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AddmenuActivity.class);
+                intent.putExtra("restaurantName",restaurantnameEdit.getText().toString());
+                intent.putExtra("ownerName", getIntent().getStringExtra("USER_ID"));
                 startActivityForResult(intent, sub);
             }
         });
-        convertTest.setOnClickListener(new View.OnClickListener() {
+        /*convertTest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
                 try {
@@ -83,6 +88,6 @@ public class EnrollActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
     }
 }

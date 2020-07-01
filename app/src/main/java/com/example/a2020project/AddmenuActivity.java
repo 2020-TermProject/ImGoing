@@ -10,8 +10,10 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.a2020project.Json.AddmenuJson;
 import com.example.a2020project.MainActivity;
 import com.example.a2020project.R;
 
@@ -25,6 +27,9 @@ public class AddmenuActivity extends AppCompatActivity {
     ImageView imageView;
     Button picBtn;
     Button takepicBtn;
+    Button addBtn;
+    Button returnBtn;
+    EditText menuEdit;
     public static final int sub = 1001;
     //public Button addButton;
     //public Button backButton;
@@ -34,9 +39,12 @@ public class AddmenuActivity extends AppCompatActivity {
 
         /* 이미지 첨부
          */
-        imageView = (ImageView)findViewById(R.id.getimage);
-        picBtn = (Button)findViewById(R.id.picbutton);
-        takepicBtn = (Button)findViewById(R.id.takepicture);
+        imageView = findViewById(R.id.getimage);
+        picBtn = findViewById(R.id.picbutton);
+        takepicBtn = findViewById(R.id.takepicture);
+        addBtn = findViewById(R.id.goto_addmenu);
+        returnBtn = findViewById(R.id.back);
+        menuEdit = findViewById(R.id.menu);
 
         picBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -60,6 +68,22 @@ public class AddmenuActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String menuname = menuEdit.getText().toString();
+                AddmenuJson addmenu = new AddmenuJson();
+                addmenu.execute("http://khprince.com/restaurantApp/addMenu.php", getIntent().getStringExtra("ownerName"), getIntent().getStringExtra("restaurantName"), menuname);
             }
         });
     }

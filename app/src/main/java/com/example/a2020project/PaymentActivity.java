@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.a2020project.Json.ReservationJson;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import kr.co.bootpay.Bootpay;
@@ -33,7 +35,7 @@ public class PaymentActivity extends AppCompatActivity {
         //getIntent().getStringExtra("name");
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, "5ee368298f075100264f267c");
-        payBtn=(Button)findViewById(R.id.pay_button);
+        payBtn= findViewById(R.id.pay_button);
         payBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +70,17 @@ public class PaymentActivity extends AppCompatActivity {
                         if (0 < stuck) {
                             Bootpay.confirm(message); // 재고가 있을 경우.
                             Intent intent = new Intent(getApplicationContext(), PayComplete.class);
+                            ReservationJson reservation = new ReservationJson();
+                            reservation.execute("http://khprince.com/restaurantApp/addReservation.php",
+                                    getIntent().getStringExtra("USER_ID"), getIntent().getStringExtra("NICKNAME"),
+                                    getIntent().getStringExtra("restaurantName"),null, getIntent().getStringExtra("hour")+":"+getIntent().getStringExtra("minute"),
+                                    getIntent().getStringExtra("number"), null);
                             startActivity(intent);
+                            intent.putExtra("restaurantName",getIntent().getStringExtra("restaurantName"));
+                            intent.putExtra("number", getIntent().getStringExtra("number"));
+                            intent.putExtra("hour", getIntent().getStringExtra("hour"));
+                            intent.putExtra("minute", getIntent().getStringExtra("minute"));
+                            intent.putExtra("request", getIntent().getStringExtra("request"));
                             finish();
                         }
                         else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우

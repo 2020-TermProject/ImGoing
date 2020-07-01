@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:background="@color/colorseashell"
+
 
 
     android:id="@+id/layout" xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,12 +18,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="60dp"
+            android:textSize="50dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/cafefont"
+            android:fontFamily="@font/gmmedium"
             android:layout_marginTop="10dp"
+            android:textColor="@color/colorBlack"
             android:layout_marginBottom="30dp"
-            android:text="Category"/>
+            android:text="CATEGORY"/>
 
         <Button
             android:id="@+id/koreanfood"
@@ -35,8 +36,9 @@
 
 
             android:drawableLeft="@drawable/hansik"
-            android:fontFamily="@font/ganafont"
+            android:fontFamily="@font/gmmedium"
             android:text="한식"
+            android:textColor="@color/colorBlack"
             android:textSize="40dp" />
 
 
@@ -49,7 +51,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/josun"
             android:drawableLeft="@drawable/zhongsik"
-            android:fontFamily="@font/ganafont"
+            android:fontFamily="@font/gmmedium"
             android:text="중식"
             android:textSize="40dp" />
 
@@ -60,7 +62,7 @@
             android:layout_width="382dp"
             android:layout_gravity="center_horizontal"
             android:textSize="40dp"
-            android:fontFamily="@font/ganafont"
+            android:fontFamily="@font/gmmedium"
 
             android:background="@drawable/josun"
             android:drawableLeft="@drawable/ilsik"
@@ -74,7 +76,7 @@
             android:id="@+id/yangsikfood"
             android:drawableLeft="@drawable/yangsik"
             android:textSize="40dp"
-            android:fontFamily="@font/ganafont"
+            android:fontFamily="@font/gmmedium"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:background="@drawable/josun"
@@ -90,7 +92,7 @@
             android:textSize="40dp"
 
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/ganafont"
+            android:fontFamily="@font/gmmedium"
             android:background="@drawable/josun"
             android:text="분식"/>
 
@@ -103,7 +105,7 @@
             android:drawableLeft="@drawable/cafe"
             android:textSize="40dp"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/ganafont"
+            android:fontFamily="@font/gmmedium"
             android:background="@drawable/josun"
             android:text="카페"/>
 
