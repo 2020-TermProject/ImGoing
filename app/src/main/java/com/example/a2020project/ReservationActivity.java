@@ -2,6 +2,7 @@ package com.example.a2020project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.a2020project.Json.MenuJson;
+import com.example.a2020project.Json.SearchJson;
+import com.example.a2020project.Recycler.MenuAdapter;
+import com.example.a2020project.Recycler.MenuRow;
+import com.example.a2020project.Recycler.MyAdapter;
+import com.example.a2020project.Recycler.SearchResult;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class ReservationActivity extends AppCompatActivity {
     public Button resBtn;
@@ -22,6 +36,10 @@ public class ReservationActivity extends AppCompatActivity {
     public Spinner resMin;
     public EditText resReq;
     public Button backBtn;
+
+    RecyclerView mRecyclerView;
+    RecyclerView.LayoutManager mLayoutManager;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
@@ -33,7 +51,36 @@ public class ReservationActivity extends AppCompatActivity {
         resMin = findViewById(R.id.reservation_Spinner_Minute);
         resBtn = findViewById(R.id.reservation_Payment);
         resReq = findViewById(R.id.reservation_Request);
+        //메뉴 선택 리사이클러 뷰
+        mRecyclerView = findViewById(R.id.select_menu);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
+        ArrayList<MenuRow> menuInfoArrayList = new ArrayList<>();
+        try {
+            //로그인 서버로 검색어 보내기
+            MenuJson loginTask = new MenuJson();
+            String resName = getIntent().getStringExtra("restaurantName");
+            ArrayList<JSONObject> resultInJson = loginTask.execute("http://khprince.com/restaurantApp/showMenu.php",resName).get();
+            int price = 7000;
+            int i = 0;
+            while(i < resultInJson.size()){
+                String restaurantName = (String)resultInJson.get(i).get("restaurantName");
+                String ownerName = (String)resultInJson.get(i).get("ownerName");
+                String menuItem = (String)resultInJson.get(i).get("menuItem");
+                menuInfoArrayList.add(new MenuRow(menuItem,price));
+                i++;
+                //하나씩 뽑아서 여기에 나옴
+                Log.e("search",restaurantName + " " + ownerName + " " + menuItem);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("tag","검색 단어 서버로 보내기 실패");
+        }
+        MenuAdapter myAdapter = new MenuAdapter(this, menuInfoArrayList);
+        mRecyclerView.setAdapter(myAdapter);
+//      ----------------------
         resBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

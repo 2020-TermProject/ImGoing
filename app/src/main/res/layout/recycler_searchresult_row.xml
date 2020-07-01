@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sr_Image"
             android:layout_marginStart="20dp"
-            android:text="가능한 자리: "
+            android:text="가능한 테이블 수: "
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sr_Image"
             android:layout_toEndOf="@id/sr_availableSeat"
-            android:text="예약 된 자리: "
+            android:text="예약 된 테이블 수: "
             android:layout_marginStart="10dp"
             android:textColor="#000000"
             android:textSize="20sp" />
